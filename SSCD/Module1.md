@@ -21,4 +21,17 @@
 
 * There are 5 registers. All have special uses. All are 24 bits in length.
 
+<img src = "registers.png">
 
+#### Data Formats
+
+* Int -> 24 bits, Negative integers are represented using 2's complement.
+* Char -> 8 bits, same as length of ASCII codes.
+* No floating point numbers present.
+
+#### Instruction Formats
+
+* All machine instructions have 24 bit format.
+* 8 bits opcode, 1 flag bit _x_ (to indicate indexed addressing mode), 15 bit address.
+
+<img src = "instruction_format.png">
