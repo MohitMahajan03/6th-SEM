@@ -35,3 +35,5 @@
 * 8 bits opcode, 1 flag bit _x_ (to indicate indexed addressing mode), 15 bit address.
 
 <img src = "instruction_format.png">
+
+#### Addressing Modes
