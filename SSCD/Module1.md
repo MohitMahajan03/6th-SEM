@@ -37,3 +37,22 @@
 <img src = "instruction_format.png">
 
 #### Addressing Modes
+
+* There are 2 addressing modes.
+* Direct addressing mode and indexed addressing mode.
+
+<img src = "addressing_modes.jpeg">
+
+#### Instruction Set
+
+* Load and store register instructions: LDA, LDX, STA, STX.
+* Instruction for arithmetic operations: ADD, SUB, MUL, DIV.
+    * The answer is stored in register A.
+    * COMP: compares values of register A and a word from the memory.
+* Conditional instructions (JUMP): JLT, JEQ, JGT.
+    * JSUB (jump to subroutine)
+    * RSUB (return from subroutine)
+
+#### I/O
+
+* I/O is performed by sending 1 byte at a time.
