@@ -56,3 +56,38 @@
 #### I/O
 
 * I/O is performed by sending 1 byte at a time.
+
+## SIC/XE 
+
+### Machine Architecture
+
+#### Memory
+
+* The memory structure is same as SIC, however the total memory available is 1 MB.
+* This increase in memory leads to change in the instruction formats and addressing modes.
+
+#### Registers
+
+* The registers mentioned below are the additional registers provided by SIC/XE.
+
+<img src = "sic_xe_reg.png">
+
+#### Data Formats
+
+* SIC/XE has included a 48 bit floatng data type, With 1 bit for sign, 11 bits for exponent and 36 bits for fraction.
+* Fraction is the number between 0 and 1.
+
+#### Instruction Formats
+
+<img src = "sic_xe_inst_format.png">
+
+* The flag _e_ is used to select between fomat 3 (24-bit) and format 4 (32-bit).
+
+
+#### Addressing Modes
+
+<img src = "sic_xe_addr_modes.png">
+<br><br>
+<img src = "sic_xe_addr_modes1.jpeg">
+
+* The addressing mode is determined by the flags that are set in the instructions.
