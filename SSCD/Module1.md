@@ -1,5 +1,7 @@
 # MODULE 1 : SYSTEM SOFTWARE
 
+>Refer C.W. for problems solved in class.
+
 ## System Software and Machine Architecture
 
 * System Softwares are programs that are intended to support the operation and the use of a computer itself.
@@ -91,3 +93,14 @@
 <img src = "sic_xe_addr_modes1.jpeg">
 
 * The addressing mode is determined by the flags that are set in the instructions.
+
+#### Instruction Set
+
+* SIC/XE provides 
+    * Load and store instructions.
+    * Floating point arithmetic operations.
+
+#### I/O
+
+* I/O instructions are same like in SIC.
+* I/O channels can be used even while CPU execution, which helps in overlap of computing.
