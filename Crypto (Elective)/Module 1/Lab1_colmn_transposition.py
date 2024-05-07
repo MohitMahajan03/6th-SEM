@@ -3,7 +3,8 @@ from collections import defaultdict
 from collections import OrderedDict
 
 plain_text = input("Enter the plain text ")
-
+plain_text.strip()
+plain_text.lower()
 key = input("Enter the key with spaces ").split(" ")
 
 key = [int(i) for i in key]
