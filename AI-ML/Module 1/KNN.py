@@ -22,10 +22,11 @@ if(n != len(data_labels)):
     print("Invalid Input")
 
 else:
-    test_data = input("Enter the test data points with spaces").split(" ")
+    test_data = input("Enter the test data points with spaces ").split(" ")
     test_class = input("Enter the class the data belongs to ")
     test_data = [int(i) for i in test_data]
 
+    k = int(input("Enter the number of neighbors to be considered "))
     dist = []
     for i in range(n):
         sums = 0
@@ -36,5 +37,11 @@ else:
     dist.sort(key = lambda x : x[0])    
     print(dist)
 
+    k_nearest = {}
+    for i in range(k):
+        if(dist[i][1] in k_nearest):
+            k_nearest[dist[i][1]] += 1
+        else:
+            k_nearest[dist[i][1]] = 1
 
-    
+    print(k_nearest)
