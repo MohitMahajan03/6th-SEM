@@ -84,3 +84,25 @@ Descriptive Learning -> Clustering
 ## Confusion matrix
 
 * This matrix is used to calculate metrics such as Precision, Recall and Specificity.
+
+**Cases of Positives and Negatives**
+* _True Positive:_ If the model predicted a *"win"* and the team *"won"*, then model has correctly classified the data.
+* _False Positive:_ If the model predicted a *"win"* and the team *"lost"* then the model classified incorrectly.
+* _False Negative:_ If the model predicted a *"loss"* and the team *"won"* then the model classified incorrectly.
+* _True Negative:_ If the model predicted a *"loss"* and the team *"lost"* then the model classified the data correctly.
+
+* Accuracy
+
+    * (Tp + Tn)/(Tp + Tn + Fn + Fp)
+
+* Precision
+
+    * Tp/(Tp + Fp)
+
+* Recall
+
+    * Tp/(Tp + Fn)
+
+* Specificity
+
+    * Tn/(Tn + Fp)
