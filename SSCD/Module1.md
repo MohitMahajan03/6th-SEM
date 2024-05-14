@@ -104,3 +104,7 @@
 
 * I/O instructions are same like in SIC.
 * I/O channels can be used even while CPU execution, which helps in overlap of computing.
+
+## Programming Examples
+
+<img src = "program_ex.png">
