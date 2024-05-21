@@ -108,3 +108,9 @@
 ## Programming Examples
 
 <img src = "program_ex.png">
+
+## Object code generation
+* Refer notes
+
+## 1 Pass Assemblers
+
