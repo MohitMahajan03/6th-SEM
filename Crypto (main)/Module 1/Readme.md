@@ -1,6 +1,6 @@
 >This Module contains classical cipher and Stegnographic Tool.
 
-### Topics Covered
+### Topics to be Covered
 * Categories of Vulnerabilities
 * threats
 * attacks

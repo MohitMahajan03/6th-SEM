@@ -84,3 +84,34 @@
     * An active attack changes the data and harms the system.
     * Attacks that threaten integrity and availability are called active attacks.
     * Active attacks are easier to detect than prevent.
+
+## Kerckhoff's Principle
+
+> This principle assumes that the adversary knows the encryption/decryption algorithm
+
+* The resistance of the cipher to attack must always be based on the secrecy of the key.
+
+## Cryptanalysis
+
+> It is the science of breaking secret cryptographic codes, to find vulnerabilities.
+
+There are 4 main types of Cryptanalytic attacks.
+
+<img src = "crypt_ana_attacks.png">
+
+### Ciphertext-Only Attack
+
+* Assuming the adversary knows the cipher text and the algorithm.
+* The attacker will try to get plain text from the cipher text.
+
+<img src = "cipher_text_only.png">
+
+### Brute-Force Attack
+
+* Assuming that the attacker knows the algorithm and the and knows the key domain.
+* In this method, the attacket tries to use all possible keys to get the plain text from the cipher text.
+* To prevent this, the number of possible keys must be very large.
+
+### Statistical Attack
+
+
