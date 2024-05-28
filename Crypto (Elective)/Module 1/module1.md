@@ -160,4 +160,6 @@ There are 4 main types of Cryptanalytic attacks.
 
 <img src = "Caesar.png">
 
+### Polyalphabetic Ciphers
+
 
