@@ -160,6 +160,70 @@ There are 4 main types of Cryptanalytic attacks.
 
 <img src = "Caesar.png">
 
+>Additive Ciphers are vulnerable to ciphertext only attacks by exhaustive key searches.
+
 ### Polyalphabetic Ciphers
 
+>Each occurence of a character in the plaintext may have a different substitute.
 
+* Ex: if a letter _'A'_ is changed to _'D'_, then the next letter _'A'_ in the plaintext can be changed to _'N'_ or any other letter.
+
+#### Autokey Cipher
+
+* In this cipher, the key is a stream of subkeys where each subkey is used to encrypt the corresponding plaintext character.
+
+<img src = "autokey.png">
+
+#### Playfair Cipher
+
+* The plaintext is arranged in a 5x5 matrix.
+
+>refer the image below for detailed explanation
+
+<img src = "playfair1.png">
+<img src = "playfair2.png">
+
+>Only ciphertext-only attack can be used on a playfair cipher.
+
+### Transposition Ciphers
+
+>Transposition cipher changes the position of the characters in the plaintexts.
+
+* Ex: A symbol appearing in the 1st postion may appear in the 10th position.
+* In short, transposition ciphers reorders the symbols in the plaintext.
+
+#### Keyless Transposition Ciphers
+
+* Simple transpositions that did not need any keys.
+* The text is either written column by column and transmitted row by row or vice versa
+
+<img src = "railfence.png">
+
+#### Keyed Transposition Ciphers
+
+* The characters of the plaintext are divided into blocks and a key is used to permute each block separately.
+
+<img src = "tpcipher.png">
+
+>Transposition ciphers are vulnerable to ciphertext-only attacks.
+
+#### Double Transposition
+
+<img src = "double.png">
+
+## Cryptographic Primitives
+
+* Cryptographic primitives are well-established, low-level cryptographic algorithms that are frequently used to build cryptographic protocols for computer security systems. 
+* These routines include, but are not limited to, one-way hash functions and encryption functions.
+
+### Keyed Primitive
+
+* Keyed primitives are cryptographic tools that use a secret key to encrypt, decrypt, or authenticate data. 
+* Examples include symmetric-key ciphers, message authentication codes (MACs), and digital signatures.
+* The security of these primitives relies on the secrecy of the key and the computational complexity of the algorithm.
+
+### Unkeyed Primitive
+
+* Unkeyed primitives, on the other hand, are cryptographic tools that do not use a secret key. Examples include hash functions and one-way permutations.
+* These primitives are often used for data integrity, data authenticity, and digital signatures.
+* The security of these primitives relies on the computational complexity of the algorithm and the difficulty of inverting the function.
