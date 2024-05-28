@@ -19,3 +19,31 @@
 <img src = "langproc.png">
 
 ## The Structure of a Compiler
+
+* COMPILER -> Analysis
+           |
+           -> Synthesis
+
+* The analysis part:
+    1) Breaks source program into constituent parts
+    2) Impose grammatical structure
+    3) Informs if code is symantically or syntactically unsound.
+    4) Also called the front-end of the compiler.
+
+* The synthesis part:
+    1) Constructs the target program from the source program.
+    2) Also called as the back-end of the compiler.
+
+<img src = "Struct_comp.png">
+
+### Lexical Analysis
+
+* The Lexical Analyzer :
+    1) Reads stream of characters making up the source program.
+    2) Groups characters into meaningful sequences called lexemes.
+    3) It produces outputs in the form of _tokens_ whose structure is _(token-name, attribute-value)_.
+    4) These tokens are then passed onto the _syntax analzer_.
+    5) The _attribute value points to an entry in the symbol table for this token.
+
+<img src = "examp.png">
+
