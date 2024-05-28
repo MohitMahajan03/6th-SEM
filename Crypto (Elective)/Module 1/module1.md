@@ -114,4 +114,50 @@ There are 4 main types of Cryptanalytic attacks.
 
 ### Statistical Attack
 
+* Using logic and assumptions to break the cipher text. (Ex: The letter 'E' is used most number of times in a plain text)
+* To prevent these kinds of attacks the cipher should hide the characteristics of the language.
+
+### Pattern Attack
+
+* While hiding the characteristics of a language the cipher may create patterns, these patterns can be used to break the cipher.
+* To avoid this, the cipher must make the cipher text look as random as possible.
+
+### Known-Plaintext Attack
+
+* The attacker has both cipher text and plaintext pair with them, this is then used to break the next intercepted cipher texts.
+* To avoid this, it is better to change the key of the cipher.
+
+<img src = "knwnpt.png">
+
+### Chosen-Plaintext Attack
+
+* Similar to _Known-Plaintext Attack_, but the attacker chooses the plaintext/ciphertext pair.
+* This attack is less likely to happen.
+
+<img src = "Chosenpt.png">
+
+### Chosen-Ciphertext Attack
+
+* Same as _Chose-Ciphertext Attack_, but attacker intercepts ciphertexts, decrypts it and then uses this plaintext/ciphertext pair.
+
+<img src = "Chosenct.png">
+
+
+## Substitution Ciphers
+
+>Replacing of 1 symbol with another.
+
+### Monoalphabetic Ciphers
+
+>A Character in plaintext is always substituted for another same character.
+
+* Ex: if a letter _'A'_ is changed to _'D'_, every letter _'A'_ in the plaintext is always changed to _'D'_.
+
+#### Additive Cipher / Ceasar Cipher
+
+* The cipher contains a numneric key, and this key is added to the alphabet to get the cipher alphabet.
+* Ex: A = 00, key = 4, A + key = 4 = D.
+
+<img src = "Caesar.png">
+
 
