@@ -47,3 +47,13 @@
 
 <img src = "examp.png">
 
+## Evolution of Programming Languages
+
+* Computers were built in the 1940's and were programmed using 1's and 0's i.e. Machine code.
+* The operations were really low level, like move data from registers and compare 2 values etc.
+* This kind of programming was tedious, slow and error prone, and programs were difficult to understand and modify.
+
+### Move To Higher Level Languages
+
+* The 1st move to higher langauges started with mnemonics for the machine code, this led to the emergence of _assembly_ languages.
+
