@@ -56,4 +56,37 @@
 ### Move To Higher Level Languages
 
 * The 1st move to higher langauges started with mnemonics for the machine code, this led to the emergence of _assembly_ languages.
+* Later to assembly languages, macros were added to help write the shorthands in the assembly language.
+
+* Higher level programming languages were developed in the 1950's with _Fortran_, _Cobol_ for business data processing and _Lisp_ for symbolic data computation.
+* These higher level programming languages were required to write numerical computations, business applications and symbolic programs.
+* More features were added to these languages to make programming more easier, natural and robust.
+
+>These high level programming languages can be classified into generations.
+
+* First Generation: Machine Languages
+* Second Generation: Assembly Language
+* Third Generation: High Level Languages like Cobol, Fortran, Lisp, C, C++, C#, Java, Python etc.
+* Fourth Generation: These languages are built for a particular application like NOMAD, SQL and Postscript.
+* Fifth Genereation: These are logic and constraint based languages like Prolog and OPS5.
+
+>Languages are classified based on how the computation takes place, and what computations are to take place i.e. imperative languages and declarative languages.
+
+* Languages like C, C++, C# and Java are imperative languages.
+* Imperative languages work on program states, and the satements that are executed alter the states.
+
+* Languages like ML, Haskell and Prolog are declarative languages.
+* Declarative programming languages specifies what work is to be done without specifying the control flow.
+
+* Von Nuemann language models are languages that whose computational models are based on the Von Neumann computer architecture. 
+* C and Fortran are Von Nuemann languages.
+
+>Languages are classified based on the structure and their functionalities.
+
+* Object Oriented Programming: Style where program consists of objects and them interacting with each other. Ex: C++, C#, Java, etc.
+
+* Scripting Languages: These are interpreted languages which _"glue together"_ computations also called as scripts. Ex:
+Awk, JavaScript, Perl, PHP, Python, Ruby and Tcl.
+
+## Science of Building Compiler
 

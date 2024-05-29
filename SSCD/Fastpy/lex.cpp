@@ -9,7 +9,7 @@ using namespace std;
 class lex_analyse
 {
     private:
-        map <char, string> ops = {
+        unordered_map <char, string> ops = {
             {'+', "Addition"},
             {'-', "Subtraction"},
             {'*', "Multiplication"},
@@ -17,7 +17,7 @@ class lex_analyse
             {'=', "Assignment"}
         };
 
-        map <string, string> kw = {
+        unordered_map <string, string> kw = {
             {"if", "if"},
             {"else", "else"},
             {"elif", "elif"},
