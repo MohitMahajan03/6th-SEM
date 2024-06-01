@@ -90,3 +90,21 @@ Awk, JavaScript, Perl, PHP, Python, Ruby and Tcl.
 
 ## Science of Building Compiler
 
+* Compiler design help solve real world problems by abstracting the essence of the problem mathematically.
+* A compiler must accept all source programs that conform to the specification of the language set.
+* The compiler must preserve the meaning of the code being translated/compiled.
+* Therefore, compiler writers have influence not only on the compilers that they write, but also on the compiled codes that they generate.
+* This leverage makes compiler development challenging.
+
+### Modeling in Compiler Design and Implementation
+
+* Most fundamental models for building a compiler are 
+    1) <u>Finite State Machines and Regular Expressions </u>: These models are useful for describing lexical units of a program and for describing algorithms used by the compiler to recognise these units.
+
+    2) <u>Context Free Grammars</u> : These models are used to describe the syntactic structure of programming languages such as nesting of paranthesis and control constructs.
+
+    3) <u>Trees</u> : Model used for representing structure of the program and their translation into object code.
+
+
+### Science of Code Optimization
+
