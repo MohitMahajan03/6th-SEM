@@ -108,3 +108,55 @@ Awk, JavaScript, Perl, PHP, Python, Ruby and Tcl.
 
 ### Science of Code Optimization
 
+* Compiler optimazations have to meet the following design requirements:
+    1) The optimized code should be correct.
+    2) The optimization must improve performance of many programs.
+    3) The compilation time must be reasonable.
+    4) The engineering effort must be kept manageable.
+
+Expand on all above 4 points in your own words.
+
+## Applications of Compiler Technology
+
+### Implementation of High Level Programming Languages
+
+* High level programming languages support user-defined aggregated data types, like arrays and structures.
+* They also provide high level control flow such as loops and procedure invocation.
+* If compilers just convert this into machine code, it will be very inefficient.
+* The compiler in its optimizer contains a _data-flow optimization_ unit which analyzes the flow of data through the program and removes redundancies across these constructs.
+
+### Optimization for Computer Architecture
+
+* Parallelism
+    * Compilers are developed to translate code from high level to machine level.
+    * Computer architectures are built in such a way that multiple instructions can be executed at the same time also called as parallelism.
+    * The compiler needs to effectively translate the High level code such that this property of parallelism can be used/exploited.
+
+* Memory Heirarchy
+    * The memory heirarchy must be used effectively by the compiler.
+
+
+### Design of New Computer Architecture
+
+* RISC
+
+
+* Specialized Architectures
+
+### Program Translations
+
+* Binary translation
+
+* Hardware Synthesis
+
+* Database Query Interpreters
+
+* Compiled Simulation
+
+### Software Productivity tools
+
+* Type Checking
+
+* Bounds Checking
+
+* Memory Management Tools
