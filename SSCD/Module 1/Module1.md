@@ -112,5 +112,5 @@
 ## Object code generation
 * Refer notes
 
-## 1 Pass Assemblers
+## 2 Pass Assemblers
 

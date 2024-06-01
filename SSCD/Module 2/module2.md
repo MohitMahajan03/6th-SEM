@@ -43,7 +43,7 @@
     2) Groups characters into meaningful sequences called lexemes.
     3) It produces outputs in the form of _tokens_ whose structure is _(token-name, attribute-value)_.
     4) These tokens are then passed onto the _syntax analzer_.
-    5) The _attribute value points to an entry in the symbol table for this token.
+    5) The _attribute_ value points to an entry in the symbol table for this token.
 
 <img src = "examp.png">
 
@@ -139,24 +139,55 @@ Expand on all above 4 points in your own words.
 ### Design of New Computer Architecture
 
 * RISC
-
+    * Compilers played a huge role in the design and development of the RISC architecture.
+    * Compiler optimizations often can reduce these instructions to a small number of simpler operations by eliminating the redundancies across complex instructions.
+    * It is desirable to build simple instruction sets; compilers can use them effectively and the hardware is much easier to optimize. 
 
 * Specialized Architectures
 
+    * Specailized architectures like VILW and SIMD were developed with the research and development of compilers.
+
 ### Program Translations
 
-* Binary translation
+* <u>Binary translation</u>
+    * Compilers can translate 1 binary code written for 1 instruction set to binary code for another instruction set.
+    * Helps in increasing availability of software.
+    * Binary translations are used to provide backward compatibility also.
 
-* Hardware Synthesis
+* <u>Hardware Synthesis</u>
+    * Compilers can synthesize the design of circuits and optimize them.
+    * Hardware design is represented at register transfer level. 
+    * The variables represent the register and the expression represent the combinational logic.
+    * Ex: VHDL, Verilog.
 
-* Database Query Interpreters
+* <u>Database Query Interpreters</u>
+    * Compilers built to translate database queries and programs.
 
-* Compiled Simulation
+* <u>Compiled Simulation</u>
+    * Simulations are used to test and validate a design.
+    * Inputs given are description of the design and some test parameters.
+    * This process takes a lot of time.
+    * Instead, we compile the design to produce machine code that simulates that particular design which runs faster. 
 
 ### Software Productivity tools
 
+> These are software tools used to find/catch errors for better and faster debugging
+
 * Type Checking
+    * Type checking is used to find errors like wrong usage of wrong data type in the operation.
+    * This is done by checking the flow of the data through the entire program. 
+    * It is also used to detect security holes.
 
 * Bounds Checking
+    * Accessing memory out of bounds is a common error in programming but very difficult to detect.
+    * Compiler techniques have been used to develop and find buffer overflows in high level languages.
+    * These errors are found by the _automated range checkers_ which are a part of the _data-flow analysis_ unit.
+    * This can also detect buffer overflows.
 
 * Memory Management Tools
+    * Memory leaks is a very dangerous hazard especially in C and C++, the developers themselves need to free allocated memory.
+    * To overcome this, _automated garbage collection_ was developed.
+    * This automated memory management tool helped in solving all memory related errors.
+
+# LEXICAL ANALYSIS
+
