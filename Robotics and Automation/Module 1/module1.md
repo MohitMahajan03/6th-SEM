@@ -190,3 +190,37 @@ inherent in the robotizing process
 * A pneumatic or a hydraulic system which can directly impart motions to the robot links and the end-effectors is called an actuator, not motor.
 
 <img src = "actuators.png">
+
+### Transmission
+
+* These elements transmit motion from the electric motors and pneumatic/hydraulic actuators to the actual links of the manipulator
+* With electric motors these elements, mainly, the gears, are used to step down the speed. Note that electric motors are efficient at higher speeds
+* The transmission gears are used to reduce the speed of the electric motors.
+* Typical transmission elements are the following:
+    1. Belt and Chain Drives
+    2. Gears
+    3. Link Mechanisms
+    4. Screw Mechanism
+
+#### Belt and Chain Drives: 
+
+* Belt drives are widely used in robotics, particularly, the synchronous belt shown in Fig. 2.5(a).However, their life is short as they rely on belt tension to produce grip over the pulley.
+* Chains drives shown in Fig. 2.5(b) are generally cheaper. They have higher load capacities and service lives compared to belt drives, but lower in relation to the gears.
+
+<img src = "belt_chain.png">
+
+#### Gears
+
+* Gears Of all mechanical transmissions, gears shown in Fig. 2.6 are the most long-lasting and reliable, although their backlash must be carefully taken into account during the design stage.
+
+<img src = "screw.png">
+
+#### Link Mechanisms
+
+* Link Mechanisms: In order to reduce the flexibility and weight of the above transmission elements, link mechanisms shown in Fig. 2.7(a) are used.
+
+#### Screw Mechanisms
+
+* Screw Mechanism: Figure 2.7(b) shows how ball-screws with a four-bar mechanism (indicated with 1, 2, 3 and 4) bars are used to transmit motion.
+
+<img src = "screw.png">
