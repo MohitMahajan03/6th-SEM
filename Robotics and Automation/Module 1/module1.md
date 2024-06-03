@@ -154,6 +154,8 @@ inherent in the robotizing process
 
 ## 6. Explain the Motion Subsystem of Robot.
 
+<b><u>ANS</u></b>:
+
 <img src = "subs.png">
 
 * The elements of the motion subsystem are as follows:
@@ -224,3 +226,143 @@ inherent in the robotizing process
 * Screw Mechanism: Figure 2.7(b) shows how ball-screws with a four-bar mechanism (indicated with 1, 2, 3 and 4) bars are used to transmit motion.
 
 <img src = "screw.png">
+
+
+## 7. Explain the Recognition and Control Subsystem of Robot.
+
+<b><u>ANS</u></b>:
+
+### Two important component of Recognition System are
+* Sensors: Sensors fall into one of the several general areas: vision, touch, range and proximity detection,
+navigation, speech recognition.
+* Analog-to-Digital Converter (ADC): This device converts analog data fetched from pressure, audio, and temperature sensors into digital signals.
+
+<img src = "adc.png">
+
+### Control Subsystem
+
+Two major Components of a control subsystem are: 
+1. Digital Controller
+2. Digital-to-Analog Converter ( DAC)
+3. Amplifier
+
+* The digital controller is a special electronic device that has a CPU, memory, and sometimes hard disk to store programmed data.
+* In robotic systems, these components are kept inside a box referred as a controller.
+* It is used to control the movement of the manipulator and end-effecter.
+* A controller processes the user-programmed commands and sends signals to the actuators through the Digital-to-Analog Converters (DAC). The programming languages can be same as computers, i.e., BASIC, Fortran, C, and C++.
+* This is mainly to introduce specific features into the robotic systems so that the products are different.
+A Digital-to-Analog Converter, or DAC, converts the digital signal from the robot controller to an analog signal to activate the actuators.
+
+In, order to actually drive the actuators, e.g., a dc electric motor, the digital controller is
+coupled with a DAC to convert its signal back to an equivalent analogue signal, e.g., the
+electric voltage for the dc motor.
+
+* Amplifier : Since the control commands from the digital controller converted to
+analog signals by the DAC are very weak, they need to be amplified to drive, e.g., the
+electric motors of the robot manipulator.
+
+
+## 8. Explain in details classification of Robots based on the Co-ordinate System.
+
+<b><u>ANS</u></b>:
+
+There are several ways to classify a robot,
+
+* based on a coordinate system, i.e., Cartesian or cylindrical, etc., 
+    1. Cartesian
+    2. Cylindrical
+    3. Spherical or Polar
+
+* based on its applications or Control of a robot i.e., assembling or 
+welding, etc
+
+### Cartesian Robot
+
+* When a robot’s arm moves in a rectilinear mode, that is, to the directions of the rectangular right-handed Cartesian coordinate system's x, y, and z coordinates.
+* The movements are called travel x, height or elevation y, and reach z of the arm.
+* A Cartesian robot needs a large volume to operate. It has, however, a rigid structure and provides an accurate position of the end-effecter.
+* Maintenance of such robots is difficult, as the rectilinear motions are generally obtained through the sets of rotary electric actuators coupled with nut-and-ball screws.
+* Dust accumulated on the screws may jam the smooth motion of the robot. Hence, they have to be covered with bellows.
+* Moreover, maintaining the straightness of the screw demands higher rigidity in those components. Hence, such robots tend to be more expensive.
+
+<img src = "cart.png">
+
+
+### Cylindrical
+
+* When the arm of a robot possesses one revolute and two prismatic joints.
+* The first prismatic joint of the Cartesian type.is replaced by a revolute one with its axis rotated by 90° about the reach z-axis,
+*The points that it can reach conveniently be specified by the cylindrical coordinate., i.e., angle θ, height y, and radius z.
+* Since the coordinates of the arm can assume values between specified upper and lower limits, its end-effector can move in a limited volume that is a cut section from the space between the two concentric cylinders.
+* A robot of this type may have difficulties in touching the floor near the base.
+* Cylindrical robots are successfully used when a task requires reaching into small openings or working on cylindrical surfaces, e.g., welding pipes.
+
+<img src = "cyl.png">
+
+
+### Spherical or Polar
+
+* When the arm of a robot can change its configuration by moving its two revolute joints and one prismatic joint.
+* The second prismatic joint along the height y of the cylindrical type is replaced by a revolute joint with its axis rotated by 90° about the reach z-axis, the arm position is conveniently described by means of the spherical coordinates, i.e., θ, φ, and z.
+* The arm movements represent the base rotation, elevation angles, and reach, respectively.
+
+<img src = "polar.png">
+
+
+### Articulated or Revolute
+
+* When a robot arm consists of links connected by revolute joints only, i.e., the third prismatic joint of the spherical type is also replaced by another revolute joint with its axis rotated by 90° about the q-axis, it is called an articulated or revolute jointed arm.
+* Such robots are relatively simple to fabricate and maintain, as the robot’s actuators are directly coupled through a set of rotary gear or belt elements.
+
+<img src = "revol.png">
+
+<img src = "diffs.png">
+
+## 9. List the laws defined for Robots.
+
+<b><u>ANS</u></b>:
+
+Isaac Asimov in his science-fiction stories during the 1940s envisioned the robot as a helper of
+humankind and postulated three basic rules for robots. These are generally known as the ‘ Laws of
+Robotics.’
+
+1. A robot must not harm a human being, nor through inaction allow one to come to harm.
+2. A robot must always obey human beings, unless that is in conflict with the first law.
+3. A robot must protect from harm, unless that is in conflict with the first two laws.
+
+A fourth law was later introduced by Fuller (1999) as
+4. A robot may take a human being’s job but it may not leave that person jobless
+
+
+## 10. Explain the Motion Subsystem of a Robot.
+
+<b><u>ANS</u></b>:
+
+>Same as answer 6
+
+## 11. Compare Industrial and Special Purpose Robots.
+
+<b><u>ANS</u></b>:
+
+* Industrial robots are intended to serve as general-purpose, unskilled or semiskilled
+labour, e.g., for welding, painting, machining, etc.
+
+* A special-purpose robot is the one that is used in places other than typical factory environment.
+
+## 12. Explain the following Actuation method: Electric, Fluid and Pneumatic
+
+* Actuators can be made of a variety of materials, such as metal or elastic, and are
+commonly operated by use of compressed air (pneumatic actuators) or oil
+(hydraulic actuators) but come in a variety of formats to best fulfill their
+specialized roles.
+
+
+## 13. Mention the typical applications of robots and explain any four
+
+## 14. Explain briefly applications of industrial robots 
+
+## 15. Explain the different subsystems of a robotic system
+
+## 16. Explain the different ways of classifying a robot
+
+## 17. Explain the control methods to achieve motion path in a robot
