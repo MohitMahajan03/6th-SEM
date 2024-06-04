@@ -112,5 +112,50 @@
 ## Object code generation
 * Refer notes
 
-## 2 Pass Assemblers
+## Assembler algorithm and Data Structures
 
+* Assemblers use 2 major internal data structures.
+    1. OPTAB
+    2. SYMTAB
+
+### OPTAB
+
+>OPTAB stands for Operation Code table.
+
+* OPTAB is used to look up mnemonic operation codes and translate them to their machine language equivalents.
+* It is organised as a hash table with the mnemonic operation code as the key.
+* OPTAB is a static table in most cases.
+
+### SYMTAB
+
+>SYMTAB stands for Symbol table.
+
+* SYMTAB is used to store values/addresses assigned to labels together with flags to indicate error.
+* This table can also contain information about data area and or instruction labeled.
+* It is organised as a hash table for effiecient insesrtion and retrieval.
+
+## Pass 1 and Pass 2
+
+* The assembler during pass 1 uses the OPTAB to look up and validate the operation codes in the source program.
+* The assembler during pass 2 OPTAB and SYMTAB are used to translate the operation codes in machine language.
+* For simpler SIC assembler, both pass 1 and pass 2 are performed in the same time.
+* SIC/XE has instructions of different lengths, therefore in pass 1 we need to increment LOCCTR in the OPTAB against the instructions.
+* And use this information in pass 2 to determine the instruction format to be used and the pecularities of the object code.
+
+Summarizing:
+
+* Pass 1 (Defining symbols): 
+    1. Assign addresses to all statements in the program
+    2. Save the values/addresses assigned to all labels for use in Pass 2.
+    3. Perform some processing of the assembler directives (like determining the length of data areas defined by BYTE and RESW).
+
+<img src = "pass1.png"><br><br>
+
+* Pass 2 (assemble instructions and generate object programs)
+    1. Assemble instructions (translating operation codes and looking up addresses).
+    2. Generate data values defined by BYTE, WORD, etc.
+    3. Perform processing of assembler directives not done during Pass 1.
+    4. Write object program and assembly listing.
+<br><br>
+
+<img src = "pass2.png">
