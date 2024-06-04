@@ -176,8 +176,37 @@ Summarizing:
 
 ## Program Blocks
 
+* Traditionally assemblers handled programs as a single entity, which resulted in a single bloc of object code, which is then generated into machine instructions in the same order.
+* Many assmeblers now provide features that allow more flexibility in the code handling which allows the machine instruction in the generated object code appear in a different order.
+* It also allows the creation of independent parts of the object program.
+* The term program block is refers to the segments of code that are rearranged within a single object program.
+* Each program block may contain several separate segments of source program.
+* The assembler will rearrange these blocks logically and assign addresse to them in the object program.
+* The assembler maintains a separate location counter for porgram blocks during pass 1.
 
+<img src = "pgm_block.png">
 
-## Program Linking
+Refer Example on page 81-82
+
+## Control Sections and Program Linking
+
+* Control Section is a part of the program that maintains its identity after assembly.
+* Control Sections can be loaded and relocated independently of the other blocks
+* They are used for subroutines or logical sudivisions of other programs.
+* These sections can be assembled, loaded and manipulated separately.
+* These control sections need to be logically _linked_ together.
+* This is necessary as the control sections are independently loaded and relocated.
+* These references between control sections is known as _exernal references_.
+* The assembler generates information of each external reference which helps the loader perform the necessary linking.
+* The assembler provides 2 directives to identify these references, _EXTREF_ and _EXTDEF_.
+* EXTDEF mentions the symbols that can be borrowed/used in other sections.
+* EXTREF mentions the symbols that are being borrowed from other control section.
+
+Refer Fig. 2.15 on page 89
 
 ## Bootstrap Loader
+
+* It is the 1st program that runs when the computer is switched on.
+* It loads the OS into the memory.
+
+The simple bootstrap loader is explained with an example program given on page 133-134

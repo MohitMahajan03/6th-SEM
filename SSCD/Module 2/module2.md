@@ -266,7 +266,7 @@ Expand on all above 4 points in your own words.
 
 * An important scheme involves two buffers that are alternately reloaded, as suggested in Fig
 
-<img src = "buff_pairs">
+<img src = "buff_pairs.png">
 
 * Each buffer is of the same size N, and N is usually the size of a disk block, e.g., 4096 bytes. 
 * We can read N characters into a buffer.
@@ -295,7 +295,7 @@ Expand on all above 4 points in your own words.
 
 ### Operation on Languages
 
-<img src = "op_on_lang">
+<img src = "op_on_lang.png">
 
 ### Regular Expressions
 
