@@ -159,3 +159,25 @@ Summarizing:
 <br><br>
 
 <img src = "pass2.png">
+
+## Program Relocation
+
+* Program Relocation enables the user to use multiple application programs at a time on their machine.
+* This is done to effectively share memory and resources between different programs running.
+* Because of this, the program will be loaded where ever there is space in the memory.
+* And the starting address will not be known until load time.
+* Since assembler cannot know the location until load time, it cannot make any necessary changes in the addresses used in the program.
+* The assembler identifies to the loader those parts of program that need modification.
+* An object program that contains information necessary to perform this kind of modification is called a relocatable program.
+
+
+<br><br>
+<img src = "prog_reloc.png">
+
+## Program Blocks
+
+
+
+## Program Linking
+
+## Bootstrap Loader
