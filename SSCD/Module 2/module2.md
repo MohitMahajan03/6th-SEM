@@ -191,3 +191,142 @@ Expand on all above 4 points in your own words.
 
 # LEXICAL ANALYSIS
 
+## Role of a Lexical Analyzer
+
+>The lexical analyzer reads characters -> groups them into lexemes and -> produces a sequence of tokens as output for each lexeme.
+
+* The stream of tokens are then sent to the syntax analyzer to check for syntax validity.
+* The lexical analyzer also writes the token and the identifier in the symbol table for future reference. 
+
+<img src = "lex_ana.png">
+
+* Lexical analysis is divided into 2 processes:
+
+    1. _Scanning_: It consists of the simple processes that do not require tokenization of the input, such as deletion of comments and compaction of consecutive whitespace characters into one.
+    2. _Lexical Analysis_: It r is the more complex portion, where the scanner produces the sequence of tokens as output. 
+
+### Separation of Lexical Analysis and Parsing
+
+1. Simplicity of Compiler design: 
+    * Lexical analysis helps in removing white spaces and comments, which helps in better syntax analysis.
+    * If removal of white spaces and comments were done at parsing, then design of parser would be complicated.
+
+2. Improved Compiler efficiency:
+    * Applying specific techniques required for lexical tasks only, help in speeding up lexical analysis.
+    * Adding buffering techniques during lexical analysis to speed up the compiler overall.
+
+3. Portability:
+    * Compiler portability is enhanced by having a separate lexical analyzer.
+
+### Tokens Patterns and Lexemes
+
+1. Token:
+    * Token is a pair of token name and attribute.
+    * The token name is an abstract symbol representing a kind of lexical unit.
+
+2. Pattern:
+    * The pattern is just the sequence of characters that form the keyword.
+
+3. Lexeme:
+    * A lexeme is a sequence of characters in the source program that matches the pattern for a token and is identified by the lexical analyzer as an instance of that token. 
+
+### Attributes of a Token
+
+* When more than one lexeme can match a pattern, the lexical analyzer must provide the subsequent compiler phases additional information about the particular lexeme that matched. 
+* For example, the pattern for token number matches both 0 and 1, but it is extremely important for the code generator to know which lexeme was found in the source program. 
+* Thus, in many cases the lexical analyzer returns to the parser not only a token name, but an attribute value that describes the lexeme represented by the token; the token name influences parsing decisions, while the attribute value influences translation of tokens after the parse.
+
+<img src = "token_ex.png">
+
+### Lexical Errors
+
+>It is hard for a lexical analyzer to tell, without the aid of other components, that there is a source-code error.
+
+* Suppose a situation arises in which the lexical analyzer is unable to proceed because none of the patterns for tokens matches any prefix of the remaining input. The simplest recovery strategy is "panic mode" recovery.
+* We delete successive characters from the remaining input, until the lexical analyzer can find a well-formed token at the beginning of what input is left. 
+* This recovery technique may confuse the parser, but in an interactive computing environment it may be quite adequate. 
+
+* Other possible error-recovery actions are: 
+    1. Delete one character from the remaining input. 
+    2. Insert a missing character into the remaining input. 
+    3. Replace a character by another character. 
+    4. Transpose two adjacent characters.
+
+
+## Input Buffering
+
+>The task of lexical analysis is made difficult by the fact that we often have to look one or more characters beyond the next lexeme before we can be sure we have the right lexeme.
+
+* There are many situations where we need to look at least one additional character ahead. 
+* For instance, we cannot be sure we've seen the end of an identifier until we see a character that is not a letter or digit, and therefore is not part of the lexeme for id.
+
+### Buffer Pairs
+
+>Because of the amount of time taken to process characters and the large number of characters that must be processed during the compilation of a large source program, specialized buffering techniques have been developed to reduce the amount of overhead required to process a single input character. 
+
+* An important scheme involves two buffers that are alternately reloaded, as suggested in Fig
+
+<img src = "buff_pairs">
+
+* Each buffer is of the same size N, and N is usually the size of a disk block, e.g., 4096 bytes. 
+* We can read N characters into a buffer.
+* If fewer than N characters remain in the input file, then a special character, represented by eof, marks the end of the source file and is different from any possible character of the source program.
+
+* Two pointers to the input are maintained: 
+1. Pointer _lexemeBegin_, marks the beginning of the current lexeme, whose extent we are attempting to determine. 
+2. Pointer _forward_ scans ahead until a pattern match is found; the exact strategy whereby this determination is made will be covered in the balance of this chapter. 
+
+### Sentinels
+
+* The sentinel is a special character that cannot be part of the source program, and a natural choice is the character eof.
+* Sentinels are used to keep track of the pointers and make sure they have not gone out of the buffer space.
+
+<img src = "sentinel.png">
+
+## Specification of Tokens
+
+>Regular expressions are an important notation for specifying lexeme patterns.
+
+### Strings and Languages
+
+* An alphabet is any finite set of symbols. Typical examples of symbols are letters, digits, and punctuation.
+* A string over an alphabet is a finite sequence of symbols drawn from that alphabet. In language theory, the terms "sentence" and "word" are often used as synonyms for "string."
+* A language is any countable set of strings over some fixed alphabet. This definition is very broad. Abstract languages like 0, the empty set, or €, the set containing only the empty string, are languages under this definition.
+
+### Operation on Languages
+
+<img src = "op_on_lang">
+
+### Regular Expressions
+
+<img src = "regex.png">
+
+### Regular Definitions
+
+* For notational convenience, we may wish to give names to certain regular expressions and use those names in subsequent expressions, as if the names were themselves symbols. 
+* If C is an alphabet of basic symbols, then a regular definition is a sequence of definitions of the form: 
+
+<img src = "rd.png">
+
+where: 
+1. Each di is a new symbol, not in C and not the same as any other of the d's, and 
+2. Each ri is a regular expression over the alphabet C U {dl, d2,. . . , di-l). 
+
+
+## Recognition of Tokens
+
+* Important step in Lexical analysis is to convert regular expression to regular definition of transition diagram.
+* Transition diagram has collection of nodes and states and directed edges represent transition from 1 state to another.
+* A lexeme is recognised iff it reaches the final state.
+* If forward pointer is to be retracted at the end, then '*' should be used at the final state.
+
+### Transition diagrams
+
+* As an intermediate step in the construction of a lexical analyzer, we first convert patterns into stylized flowcharts, called "transition diagrams."
+
+* Transition diagrams have a collection of nodes or circles, called states. Each state represents a condition that could occur during the process of scanning the input looking for a lexeme that matches one of several patterns.
+
+* Edges are directed from one state of the transition diagram to another. Each edge is labeled by a symbol or set of symbols.
+
+<img src = "td_eg.png">
+
