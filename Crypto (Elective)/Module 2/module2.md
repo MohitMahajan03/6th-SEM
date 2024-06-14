@@ -35,7 +35,19 @@ Collision-resistant hash functions are foundational to the security of numerous 
 variety of applications. Ensuring the continued effectiveness of these functions requires ongoing research into cryptographic methods and vigilant attention to the potential for new types of attacks. The careful selection and implementation of robust hash functions are essential for maintaining the security and trustworthiness of digital systems and communications.
 
 
+## Message Integrity
 
+## MD5
+
+## Cryptographic Hash Fucntion Requirements
+
+## SHA 512
+
+## Merkel Damgard
+
+## Random Oracle Model
+
+## Pigeon Hole Principle
 
 
 
