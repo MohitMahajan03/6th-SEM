@@ -69,6 +69,23 @@ After Left Factoring, the grammar looks as follows:
 
         * Add FIRST(B<sub>1</sub>) into FIRST(A) and replace it by ε in the production, and then Add FIRST(B<sub>2</sub>), and subsequently _if B<sub>2</sub> produces ε_ repeat the entire process again
 
+<b> Computing FOLLOW </b>
+
+1) For the start symbol 'S', place '$' in FOLLOW(S).
+
+* To Find the FOLLOW(B) proceed as follows:
+
+2) If _A -> αB_ then, <br>
+    FOLLOW(B) = FOLLOW(A), _Here there is no Terminal/Non-terminal following B, Therefore FOLLOW(B) = FOLLOW(A)_
+
+3) If _A -> αBβ_ then, <br>
+    * If β _does NOT produce_ ε then <br>
+        FOLLOW(B) = FIRST(β)
+
+    * If β _produces_ ε then <br>
+        FOLLOW(B) = {FIRST(β) - ε} U FOLLOW(A)
+
+
 ## Bottom-Up Parsers:
 
 ### Shift Reduce Parser
