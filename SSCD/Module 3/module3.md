@@ -14,6 +14,16 @@
 
 ## Left Recursion
 
+### Elimination of Left Recursion
+
+Consider,
+*   A -> Aα | β
+
+Elimination of left recursion is achieved by the following steps
+*   A  -> βA'
+*   A' -> αA' | ε
+
+
 ## Top Down Parsers
 
 ## Bottom-Up Parsers:
