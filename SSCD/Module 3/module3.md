@@ -85,6 +85,11 @@ After Left Factoring, the grammar looks as follows:
     * If β _produces_ ε then <br>
         FOLLOW(B) = {FIRST(β) - ε} U FOLLOW(A)
 
+### LL(1) Predictive Parser
+
+1) Find the FIRST and FOLLOW of the Grammar.
+2) Construct the predictive parser table (This table can also be used to ascertain if the given grammar is in the form of LL(1) or not)
+3) Parse the given string with the help of the predictive parser table.
 
 ## Bottom-Up Parsers:
 
