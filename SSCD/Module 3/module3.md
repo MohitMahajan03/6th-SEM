@@ -1,4 +1,4 @@
-# MOUDLE - 3 SYNTAZ ANALYSIS
+# MOUDLE - 3 SYNTAX ANALYSIS
 
 ## Introduction
 
