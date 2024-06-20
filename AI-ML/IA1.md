@@ -2,7 +2,7 @@
 
 <b>ANS</b>
 
-
+<img src = "Module 1\ML_Process.png">
 
 # 2. Summarize the differences between machine learning and deep learning and provide intuitive descriptions and examples of the different kinds of tasks. Explain different types of algorithms with suitable examples.
 ## 3. Explain Dimensionality reduction with an example.
