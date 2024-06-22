@@ -29,8 +29,13 @@ Once the IOT data has been digitized and aggregatd, it will need processing to f
 * At this stage, powerful IT sysrems can be brought to bear to analze, manage, and securely store the data
 * Data from multiple field sies/sensors is comined to provide a broader picture of the overall IoT system and delier actionable insights to both IT and business managers.
 
+
 ## IoT Data Acquisition System.
 ## How to prepare data for machine learning algorithms.
 ## Exploratory Data Analysis (EDA) for IoT data.
 ## Anomaly detection on IoT data. Working principle & Use of Geographical Information System (GIS), GPS module for vehicle speed measurement and real-time tracking.
 ## Analysis of IoT- enabled wearable devices data, smart cities data, and smart agriculture data.
+
+
+
+# Open Weather data collection using API
