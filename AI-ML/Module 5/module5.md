@@ -33,7 +33,11 @@ Once the IOT data has been digitized and aggregatd, it will need processing to f
 ## IoT Data Acquisition System.
 ## How to prepare data for machine learning algorithms.
 ## Exploratory Data Analysis (EDA) for IoT data.
-## Anomaly detection on IoT data. Working principle & Use of Geographical Information System (GIS), GPS module for vehicle speed measurement and real-time tracking.
+## Anomaly detection on IoT data. 
+
+* An anomaly 
+
+## Working principle & Use of Geographical Information System (GIS), GPS module for vehicle speed measurement and real-time tracking.
 ## Analysis of IoT- enabled wearable devices data, smart cities data, and smart agriculture data.
 
 
