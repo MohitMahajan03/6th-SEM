@@ -507,15 +507,419 @@ You want to classify an email as spam or not spam based on the presence of certa
 >Same as ans 11
 
 ## 13. Explain Naïve Bayes Classifier with an Example
+
+>Same as 1st part of ans 11
+
+### Example: Spam Email Classification
+
+Let's classify emails as "spam" or "not spam" based on the presence of certain words.
+
+#### Training Data
+
+| Email ID | "Discount" | "Buy" | "Cheap" | Class   |
+|----------|------------|-------|---------|---------|
+| 1        | Yes        | Yes   | Yes     | Spam    |
+| 2        | Yes        | No    | Yes     | Spam    |
+| 3        | No         | Yes   | No      | Not Spam|
+| 4        | No         | No    | Yes     | Not Spam|
+| 5        | Yes        | Yes   | No      | Spam    |
+
+#### Step 1: Calculate Prior Probabilities
+
+Calculate the prior probability for each class:
+\[ P(\text{Spam}) = \frac{\text{Number of Spam Emails}}{\text{Total Number of Emails}} = \frac{3}{5} = 0.6 \]
+\[ P(\text{Not Spam}) = \frac{\text{Number of Not Spam Emails}}{\text{Total Number of Emails}} = \frac{2}{5} = 0.4 \]
+
+#### Step 2: Calculate Likelihoods
+
+Calculate the likelihood of each feature given each class. For example:
+\[ P(\text{"Discount"}|\text{Spam}) = \frac{\text{Number of Spam Emails with "Discount"}}{\text{Number of Spam Emails}} = \frac{2}{3} \approx 0.67 \]
+\[ P(\text{"Discount"}|\text{Not Spam}) = \frac{\text{Number of Not Spam Emails with "Discount"}}{\text{Number of Not Spam Emails}} = 0 \]
+
+Similarly, compute the likelihoods for the other features.
+
+#### Step 3: Apply Bayes' Theorem
+
+For a new email with features "Discount = Yes", "Buy = Yes", "Cheap = Yes", calculate the posterior probabilities for each class:
+
+\[ P(\text{Spam}|\text{Discount, Buy, Cheap}) \propto P(\text{Spam}) \cdot P(\text{"Discount"}|\text{Spam}) \cdot P(\text{"Buy"}|\text{Spam}) \cdot P(\text{"Cheap"}|\text{Spam}) \]
+\[ P(\text{Spam}|\text{Discount, Buy, Cheap}) \propto 0.6 \cdot 0.67 \cdot \frac{2}{3} \cdot 0.67 \]
+
+\[ P(\text{Not Spam}|\text{Discount, Buy, Cheap}) \propto P(\text{Not Spam}) \cdot P(\text{"Discount"}|\text{Not Spam}) \cdot P(\text{"Buy"}|\text{Not Spam}) \cdot P(\text{"Cheap"}|\text{Not Spam}) \]
+\[ P(\text{Not Spam}|\text{Discount, Buy, Cheap}) \propto 0.4 \cdot 0 \cdot \frac{1}{2} \cdot 0.5 \]
+
+#### Step 4: Classification
+
+Compare the posterior probabilities. Since \( P(\text{Not Spam}|\text{Discount, Buy, Cheap}) = 0 \), the email is classified as "Spam".
+
+### Summary
+
+The Naïve Bayes Classifier is a simple yet effective probabilistic classifier based on Bayes' Theorem with the assumption of conditional independence among features. It is particularly useful for text classification tasks, such as spam filtering, sentiment analysis, and document categorization. Despite its simplicity and the strong independence assumption, it often performs surprisingly well in practice.
+
 ## 14. Explain about SVD.
+
+
 ## 15. Apply K nearest neighbor classifier to predict the diabetic patient with the given features BMI, Age. If the training examples are Assume K=3 Test Example: BMI=43.6, Age=40, Sugar=?
+
+>Solve and upload 
+
 ## 16. What is Artificial Neural Network? Build the working of Deep Feedforward Networks with an example.
+
+### Artificial Neural Network (ANN)
+
+An **Artificial Neural Network (ANN)** is a computational model inspired by the way biological neural networks in the human brain process information. It consists of interconnected units called neurons or nodes, which work together to solve specific problems. ANNs are a fundamental component of deep learning and are widely used for various complex tasks, such as image recognition, natural language processing, and game playing.
+
+### Key Concepts of ANNs
+
+1. **Neurons (Nodes):** The basic units of an ANN, which receive input, process it, and pass the output to the next layer of neurons.
+2. **Layers:**
+   - **Input Layer:** The first layer that receives the initial data.
+   - **Hidden Layers:** Intermediate layers that process inputs received from the input layer, applying transformations through weights and biases.
+   - **Output Layer:** The final layer that produces the output of the network.
+3. **Weights and Biases:** Parameters that are adjusted during the training process to minimize the error in the network’s predictions. Weights determine the importance of inputs, and biases allow the model to fit the data better by providing additional degrees of freedom.
+4. **Activation Function:** A function applied to the output of each neuron to introduce non-linearity into the model, enabling it to learn complex patterns. Common activation functions include sigmoid, tanh, and ReLU (Rectified Linear Unit).
+5. **Learning Rate:** A hyperparameter that controls how much the weights and biases are adjusted during each training step.
+6. **Loss Function:** A function that measures the difference between the predicted output and the actual output. The goal of training is to minimize this loss.
+7. **Backpropagation:** An algorithm used to update the weights and biases by calculating the gradient of the loss function and adjusting the parameters in the direction that minimizes the loss.
+
+### How ANNs Work
+
+1. **Initialization:** The network starts with random weights and biases.
+2. **Forward Propagation:** Inputs are fed into the input layer, and through the weighted connections and activation functions, the inputs are processed and passed forward through the hidden layers to the output layer, where the final prediction is made.
+3. **Loss Calculation:** The output is compared to the actual target values using the loss function to compute the error.
+4. **Backpropagation:** The error is propagated backward through the network, and the weights and biases are updated to minimize the loss.
+5. **Iteration:** The forward and backward propagation steps are repeated for a number of iterations (epochs) until the network learns to make accurate predictions.
+
+### Example of ANN
+
+Let’s consider a simple example of an ANN for binary classification, such as determining whether an email is spam or not spam.
+
+#### Architecture
+
+- **Input Layer:** 2 neurons (features like the number of times "buy" appears, and the number of times "free" appears in the email).
+- **Hidden Layer:** 2 neurons.
+- **Output Layer:** 1 neuron (output value 0 or 1, indicating non-spam or spam).
+
+#### Activation Function
+
+- **Hidden Layer:** ReLU (Rectified Linear Unit).
+- **Output Layer:** Sigmoid (since the task is binary classification).
+
+#### Training Process
+
+1. **Initialization:** Randomly initialize weights and biases.
+2. **Forward Propagation:** Calculate the output of the neurons layer by layer using the activation functions.
+3. **Loss Calculation:** Use a loss function like binary cross-entropy to measure the error.
+4. **Backpropagation:** Compute the gradients of the loss with respect to each weight and bias, and update them using an optimization algorithm like gradient descent.
+5. **Iteration:** Repeat the process over many epochs until the network minimizes the loss and accurately classifies the emails.
+
+### Applications of ANNs
+
+- **Image Recognition:** Identifying objects, faces, and scenes in images.
+- **Natural Language Processing (NLP):** Sentiment analysis, language translation, and chatbots.
+- **Speech Recognition:** Converting spoken language into text.
+- **Medical Diagnosis:** Analyzing medical images and patient data to assist in diagnosing diseases.
+- **Financial Forecasting:** Predicting stock prices, market trends, and credit scoring.
+
+### Summary
+
+Artificial Neural Networks are powerful computational models capable of learning and making predictions from data. By mimicking the structure and function of the human brain, ANNs can solve complex problems in various fields, making them an essential tool in modern artificial intelligence and machine learning.
+
 ## 17. Explain the concept of a Perceptron with a neat diagram. Or Explain Perceptron with appropriate diagram. Represent AND Boolean function using Perceptron.
+
+>Notes
+
 ## 18. Explain the single perceptron with its learning algorithm.
+
+>Notes
+
 ## 19. How a single perceptron can be used to represent the Boolean functions such as AND, OR. Why is that a single layer perceptron cannot be used to represent the XOR function?
+
+>Notes
+
+### Single Layer Perceptron and XOR Function
+
+A **single layer perceptron** is a type of artificial neural network with a single layer of output neurons directly connected to input features. It is essentially a linear classifier, meaning it can only solve problems where the data is linearly separable. 
+
+The **XOR function** (exclusive OR) is a classic example of a problem that is not linearly separable. The XOR function takes two binary inputs and outputs 1 if the inputs are different, and 0 if they are the same. Here is the truth table for the XOR function:
+
+| Input 1 | Input 2 | XOR Output |
+|---------|---------|------------|
+|    0    |    0    |      0     |
+|    0    |    1    |      1     |
+|    1    |    0    |      1     |
+|    1    |    1    |      0     |
+
+### Visualization of XOR
+
+Plotting the XOR function on a 2D plane:
+
+- (0, 0) maps to 0
+- (0, 1) maps to 1
+- (1, 0) maps to 1
+- (1, 1) maps to 0
+
+If you visualize these points, you'll see that no straight line can separate the points where the output is 1 from the points where the output is 0. This means the XOR problem is not linearly separable.
+
+### Why a Single Layer Perceptron Fails
+
+A single layer perceptron computes the weighted sum of the input features, adds a bias, and applies an activation function (usually a step function or a sigmoid for binary classification). Mathematically, it computes:
+
+\[ y = f(\sum_{i} w_i x_i + b) \]
+
+where:
+- \( x_i \) are the input features,
+- \( w_i \) are the weights,
+- \( b \) is the bias,
+- \( f \) is the activation function,
+- \( y \) is the output.
+
+For a single layer perceptron to classify the XOR function correctly, it would need to find a line (or hyperplane in higher dimensions) that separates the output classes. However, because the XOR function is not linearly separable, no such line exists.
+
+### Intuitive Explanation
+
+- **Linearity:** A single layer perceptron can only create a linear decision boundary. XOR requires a non-linear decision boundary because the points (0, 1) and (1, 0) should be classified differently from (0, 0) and (1, 1).
+- **Decision Regions:** A linear classifier divides the input space into two regions with a straight line. For XOR, the correct classification would require at least two decision boundaries, which a single perceptron cannot provide.
+
+### Solving XOR with Multi-layer Perceptron
+
+To solve the XOR problem, you need a **multi-layer perceptron (MLP)** with at least one hidden layer. The hidden layer introduces non-linearity, allowing the network to create complex decision boundaries. 
+
+A typical MLP for XOR might have:
+- **Input Layer:** 2 neurons (one for each input feature).
+- **Hidden Layer:** 2 neurons.
+- **Output Layer:** 1 neuron.
+
+Here's how it works:
+1. **Hidden Layer:** The hidden layer neurons create intermediate features that can linearly separate the data in a higher-dimensional space.
+2. **Output Layer:** The output layer then combines these features to produce the final classification.
+
+#### Example Architecture for XOR
+
+1. **Inputs:** \( x_1, x_2 \)
+2. **Hidden Layer Neurons:**
+   - \( h_1 = \sigma(w_{11}x_1 + w_{12}x_2 + b_1) \)
+   - \( h_2 = \sigma(w_{21}x_1 + w_{22}x_2 + b_2) \)
+3. **Output Layer Neuron:**
+   - \( y = \sigma(w_{31}h_1 + w_{32}h_2 + b_3) \)
+
+Here, \( \sigma \) is an activation function (e.g., sigmoid or ReLU).
+
+### Summary
+
+- **Single Layer Perceptron:** Can only solve linearly separable problems.
+- **XOR Function:** Not linearly separable, requiring non-linear decision boundaries.
+- **Solution:** Multi-layer perceptron with at least one hidden layer introduces the necessary non-linearity to correctly classify XOR.
+
+This fundamental limitation of single layer perceptrons is one of the reasons why multi-layer architectures (deep learning) are so powerful and widely used.
+
 ## 20. Write Gradient Descent algorithm for training a linear unit.
+
+>Notes
+
 ## 21. Write Stochastic Gradient Descent algorithm for training a linear unit.
+
+>Come back to this later
+
+
 ## 22. Differentiate between Gradient Descent and Stochastic Gradient Descent
+
+### Gradient Descent vs. Stochastic Gradient Descent
+
+**Gradient Descent (GD)** and **Stochastic Gradient Descent (SGD)** are optimization algorithms used to minimize the loss function in machine learning models. Both methods aim to find the optimal set of parameters (weights and biases) that minimize the loss function, but they do so in different ways.
+
+### Gradient Descent (GD)
+
+**Gradient Descent** is an optimization algorithm that computes the gradient of the loss function with respect to all parameters on the entire dataset before updating the parameters. 
+
+#### Characteristics:
+
+1. **Batch Size:** Uses the entire dataset to compute gradients.
+2. **Updates:** Updates parameters after processing the whole dataset.
+3. **Convergence:** Usually more stable but can be slow, especially for large datasets.
+4. **Computation:** Computationally expensive for large datasets because it needs to process the entire dataset for each update.
+
+#### Algorithm:
+
+1. **Initialize:** Start with initial parameters (weights and biases).
+2. **Compute Gradient:** Calculate the gradient of the loss function with respect to each parameter for the entire dataset.
+3. **Update Parameters:** Adjust the parameters by moving them in the direction opposite to the gradient.
+4. **Repeat:** Repeat the process until convergence (i.e., when the change in the loss function or parameters is below a certain threshold).
+
+#### Update Rule:
+
+\[ \theta = \theta - \eta \cdot \nabla_{\theta} J(\theta) \]
+
+where:
+- \( \theta \) are the parameters,
+- \( \eta \) is the learning rate,
+- \( \nabla_{\theta} J(\theta) \) is the gradient of the loss function \( J \) with respect to \( \theta \).
+
+### Stochastic Gradient Descent (SGD)
+
+**Stochastic Gradient Descent** is an optimization algorithm that computes the gradient of the loss function with respect to a single data point (or a small batch of data points) and updates the parameters immediately.
+
+#### Characteristics:
+
+1. **Batch Size:** Uses one data point (or a small batch) to compute gradients.
+2. **Updates:** Updates parameters after each data point (or mini-batch).
+3. **Convergence:** Faster updates, which can lead to quicker convergence. However, the updates can be noisy, leading to fluctuations in the loss function.
+4. **Computation:** Less computationally expensive per update, making it suitable for large datasets.
+
+#### Algorithm:
+
+1. **Initialize:** Start with initial parameters (weights and biases).
+2. **Shuffle Data:** Randomly shuffle the training data.
+3. **Compute Gradient:** For each training example (or mini-batch), calculate the gradient of the loss function with respect to the parameters.
+4. **Update Parameters:** Adjust the parameters immediately using the calculated gradient.
+5. **Repeat:** Repeat the process for all training examples and continue for several epochs.
+
+#### Update Rule:
+
+\[ \theta = \theta - \eta \cdot \nabla_{\theta} J(\theta; x^{(i)}, y^{(i)}) \]
+
+where:
+- \( x^{(i)}, y^{(i)} \) are the i-th training example and its corresponding label,
+- \( \nabla_{\theta} J(\theta; x^{(i)}, y^{(i)}) \) is the gradient of the loss function \( J \) with respect to \( \theta \) for the i-th example.
+
+### Key Differences
+
+1. **Batch Size:**
+   - **GD:** Uses the entire dataset.
+   - **SGD:** Uses one data point or a mini-batch.
+   
+2. **Updates:**
+   - **GD:** Updates parameters after processing the entire dataset.
+   - **SGD:** Updates parameters after each data point or mini-batch.
+   
+3. **Computation:**
+   - **GD:** Computationally expensive for large datasets.
+   - **SGD:** More computationally efficient per update, suitable for large datasets.
+   
+4. **Convergence:**
+   - **GD:** More stable convergence but can be slower.
+   - **SGD:** Faster updates with potential fluctuations and noise, which can help escape local minima but may lead to less stable convergence.
+   
+5. **Efficiency:**
+   - **GD:** Not efficient for large datasets due to high computational cost per update.
+   - **SGD:** More efficient for large datasets due to lower computational cost per update.
+
+### Summary
+
+- **Gradient Descent (GD):** Uses the entire dataset for each update, leading to stable but potentially slow convergence, especially for large datasets.
+- **Stochastic Gradient Descent (SGD):** Uses individual data points or mini-batches for updates, leading to faster but noisier convergence, making it suitable for large datasets and online learning.
+
+Both methods are fundamental in training machine learning models, and the choice between GD and SGD depends on the specific requirements of the problem, such as dataset size, computational resources, and the desired speed of convergence.
+
 ## 23. Write Back Propagation algorithm
+
+>Notes
+
 ## 24. Outline the stochastic gradient descent and its variants in deep learning.
+
+### Stochastic Gradient Descent (SGD) and Its Variants in Deep Learning
+
+**Stochastic Gradient Descent (SGD)** is a widely used optimization algorithm in deep learning for training models by minimizing the loss function. It updates the model parameters incrementally, using a single data point or a small mini-batch at a time, making it more efficient for large datasets compared to traditional Gradient Descent.
+
+### Basic Stochastic Gradient Descent (SGD)
+
+**Algorithm:**
+
+1. **Initialize** parameters \( \theta \) (weights and biases).
+2. **Shuffle** the training dataset.
+3. For each training example \( (x^{(i)}, y^{(i)}) \):
+   - Compute the gradient \( \nabla_{\theta} J(\theta; x^{(i)}, y^{(i)}) \) of the loss function with respect to the parameters.
+   - Update the parameters: \( \theta = \theta - \eta \cdot \nabla_{\theta} J(\theta; x^{(i)}, y^{(i)}) \), where \( \eta \) is the learning rate.
+4. **Repeat** until convergence.
+
+### Variants of SGD in Deep Learning
+
+Several variants of SGD have been developed to address its limitations and improve performance. These variants mainly aim to adapt the learning rate and smooth the parameter updates.
+
+#### 1. Mini-batch Gradient Descent
+
+**Mini-batch Gradient Descent** combines the advantages of both SGD and Batch Gradient Descent by computing the gradient on a small batch of data points.
+
+**Algorithm:**
+
+1. **Initialize** parameters \( \theta \).
+2. **Shuffle** the training dataset.
+3. Divide the dataset into mini-batches of size \( m \).
+4. For each mini-batch \( B_k \):
+   - Compute the gradient \( \nabla_{\theta} J(\theta; B_k) \).
+   - Update the parameters: \( \theta = \theta - \eta \cdot \nabla_{\theta} J(\theta; B_k) \).
+5. **Repeat** until convergence.
+
+#### 2. SGD with Momentum
+
+**Momentum** helps accelerate SGD in the relevant direction and dampens oscillations.
+
+**Update Rule:**
+
+\[ v_t = \gamma v_{t-1} + \eta \nabla_{\theta} J(\theta) \]
+\[ \theta = \theta - v_t \]
+
+where:
+- \( v_t \) is the velocity (update direction).
+- \( \gamma \) is the momentum coefficient (usually between 0.8 and 0.9).
+
+#### 3. Nesterov Accelerated Gradient (NAG)
+
+**NAG** is a variant of momentum that anticipates the future position of the parameters and computes the gradient at this approximate future position.
+
+**Update Rule:**
+
+\[ v_t = \gamma v_{t-1} + \eta \nabla_{\theta} J(\theta - \gamma v_{t-1}) \]
+\[ \theta = \theta - v_t \]
+
+#### 4. Adagrad
+
+**Adagrad** adapts the learning rate to the parameters, performing larger updates for infrequent parameters and smaller updates for frequent ones.
+
+**Update Rule:**
+
+\[ \theta = \theta - \frac{\eta}{\sqrt{G_{t,ii} + \epsilon}} \nabla_{\theta} J(\theta) \]
+
+where:
+- \( G_t \) is the diagonal matrix with the sum of squares of past gradients.
+- \( \epsilon \) is a small constant to prevent division by zero.
+
+#### 5. RMSprop
+
+**RMSprop** addresses Adagrad's diminishing learning rate issue by using a moving average of the squared gradients.
+
+**Update Rule:**
+
+\[ E[g^2]_t = \gamma E[g^2]_{t-1} + (1 - \gamma) g_t^2 \]
+\[ \theta = \theta - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \nabla_{\theta} J(\theta) \]
+
+#### 6. Adam (Adaptive Moment Estimation)
+
+**Adam** combines the benefits of RMSprop and momentum by computing adaptive learning rates for each parameter.
+
+**Update Rule:**
+
+\[ m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_{\theta} J(\theta) \]
+\[ v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_{\theta} J(\theta))^2 \]
+\[ \hat{m}_t = \frac{m_t}{1 - \beta_1^t} \]
+\[ \hat{v}_t = \frac{v_t}{1 - \beta_2^t} \]
+\[ \theta = \theta - \eta \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} \]
+
+where:
+- \( m_t \) and \( v_t \) are estimates of the first moment (mean) and the second moment (uncentered variance) of the gradients.
+- \( \beta_1 \) and \( \beta_2 \) are decay rates for the moving averages.
+
+### Summary
+
+- **SGD:** Updates parameters using a single data point.
+- **Mini-batch GD:** Uses small batches of data points, balancing between SGD and Batch GD.
+- **Momentum and NAG:** Introduce velocity to accelerate convergence and dampen oscillations.
+- **Adagrad:** Adapts learning rates based on past gradients.
+- **RMSprop:** Uses a moving average to adjust learning rates, avoiding Adagrad's diminishing learning rates.
+- **Adam:** Combines momentum and RMSprop, adapting learning rates based on the first and second moments of gradients. 
+
+These variants enhance the basic SGD by improving convergence speed, stability, and robustness, making them well-suited for training deep learning models.
+
 ## 25. What is multilayer Perceptron? Explain the back propagation algorithm 
+
+>notes
