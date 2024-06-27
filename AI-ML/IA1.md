@@ -923,3 +923,111 @@ These variants enhance the basic SGD by improving convergence speed, stability, 
 ## 25. What is multilayer Perceptron? Explain the back propagation algorithm 
 
 >notes
+
+
+## A note on Classification Report
+
+### Classification Report in Machine Learning
+
+A classification report is a performance evaluation metric in machine learning that provides a comprehensive overview of the predictive quality of a classification algorithm. It includes several key parameters that help in understanding how well a model is performing. Below are the major parameters typically included in a classification report:
+
+1. **Precision**
+2. **Recall (Sensitivity)**
+3. **F1-Score**
+4. **Support**
+5. **Accuracy**
+6. **Macro Average**
+7. **Weighted Average**
+
+### Major Parameters
+
+#### 1. Precision
+Precision, also known as Positive Predictive Value, measures the accuracy of positive predictions. It is the ratio of correctly predicted positive observations to the total predicted positives.
+
+\[ \text{Precision} = \frac{\text{True Positives (TP)}}{\text{True Positives (TP)} + \text{False Positives (FP)}} \]
+
+High precision indicates a low false positive rate.
+
+#### 2. Recall (Sensitivity)
+Recall, also known as Sensitivity or True Positive Rate, measures the ability of the model to find all the relevant cases within a dataset. It is the ratio of correctly predicted positive observations to all observations in the actual class.
+
+\[ \text{Recall} = \frac{\text{True Positives (TP)}}{\text{True Positives (TP)} + \text{False Negatives (FN)}} \]
+
+High recall indicates a low false negative rate.
+
+#### 3. F1-Score
+The F1-Score is the harmonic mean of precision and recall, providing a single metric that balances the trade-off between precision and recall. It is particularly useful when you need a balance between precision and recall and when the class distribution is imbalanced.
+
+\[ \text{F1-Score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} \]
+
+A high F1-Score indicates both high precision and high recall.
+
+#### 4. Support
+Support is the number of actual occurrences of each class in the dataset. It gives an idea of the class distribution and helps in understanding how the metrics are calculated based on the sample size.
+
+#### 5. Accuracy
+Accuracy is the ratio of correctly predicted observations to the total observations. It is the most intuitive performance measure but can be misleading if the data has an unequal class distribution.
+
+\[ \text{Accuracy} = \frac{\text{True Positives (TP)} + \text{True Negatives (TN)}}{\text{Total Observations}} \]
+
+Accuracy is useful when the class distribution is uniform.
+
+### Additional Metrics
+
+#### 6. Macro Average
+Macro average calculates the metric independently for each class and then takes the average, treating all classes equally.
+
+\[ \text{Macro Average} = \frac{\text{Precision}_{class1} + \text{Precision}_{class2} + \ldots + \text{Precision}_{classN}}{N} \]
+
+It is useful when you want to understand the overall performance of the model across all classes without considering the class imbalance.
+
+#### 7. Weighted Average
+Weighted average calculates the metric for each class independently but takes the class distribution into account by weighting each class by its support.
+
+\[ \text{Weighted Average} = \frac{\text{Support}_{class1} \cdot \text{Precision}_{class1} + \text{Support}_{class2} \cdot \text{Precision}_{class2} + \ldots}{\text{Total Support}} \]
+
+This average is useful when you want to understand the model’s performance across all classes while considering class imbalance.
+
+### Example of a Classification Report
+
+Here is an example of a classification report for a binary classification problem:
+
+```
+              precision    recall  f1-score   support
+
+           0       0.88      0.90      0.89       100
+           1       0.85      0.82      0.83        50
+
+    accuracy                           0.87       150
+   macro avg       0.86      0.86      0.86       150
+weighted avg       0.87      0.87      0.87       150
+```
+
+### Explanation of the Example
+
+- **Class 0:**
+  - **Precision:** 0.88 (88% of the instances predicted as class 0 are actually class 0)
+  - **Recall:** 0.90 (90% of the instances of class 0 are correctly identified)
+  - **F1-Score:** 0.89 (Harmonic mean of precision and recall for class 0)
+  - **Support:** 100 (Number of actual instances of class 0)
+
+- **Class 1:**
+  - **Precision:** 0.85 (85% of the instances predicted as class 1 are actually class 1)
+  - **Recall:** 0.82 (82% of the instances of class 1 are correctly identified)
+  - **F1-Score:** 0.83 (Harmonic mean of precision and recall for class 1)
+  - **Support:** 50 (Number of actual instances of class 1)
+
+- **Accuracy:** 0.87 (87% of the total predictions are correct)
+- **Macro Avg:**
+  - **Precision:** 0.86 (Average precision across both classes)
+  - **Recall:** 0.86 (Average recall across both classes)
+  - **F1-Score:** 0.86 (Average F1-Score across both classes)
+
+- **Weighted Avg:**
+  - **Precision:** 0.87 (Weighted average precision considering class support)
+  - **Recall:** 0.87 (Weighted average recall considering class support)
+  - **F1-Score:** 0.87 (Weighted average F1-Score considering class support)
+
+### Summary
+
+A classification report provides a detailed breakdown of the performance of a classification model, including precision, recall, F1-score, support, accuracy, macro average, and weighted average. These metrics help in evaluating the model's effectiveness, especially in the presence of class imbalance.
