@@ -1,4 +1,10 @@
 //'''TOKENS'''
+
+/*
+Ignore blanck spaces
+add words for analysis
+componentalize tokenizing for words and digits
+*/
 #include<iostream>
 #include<conio.h>
 #include<string.h>
