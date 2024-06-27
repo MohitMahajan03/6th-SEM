@@ -106,3 +106,62 @@ Descriptive Learning -> Clustering
 * Specificity
 
     * Tn/(Tn + Fp)
+
+
+## ML Algorithms
+
+### K Nearest Neighbors algorithm
+
+* Overiew
+    * 
+
+* Algorithm
+    * Step 1: Calculate test data point from different training data point using Euclidean distance formula √((x<sub>2</sub> - x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup>).
+    * Step 2: Find closes K training points i.e., training data whose distance are least from the test datapoint.
+    * Step 3: if k == 1
+                Then assign class label of 1st nearest training data point to the test data point.
+              else
+                Whichever class is predominantly present in the nearest training data points, assign their class to the test data point.
+
+### Linear Regression 
+
+* Overview
+    * 
+
+
+* Algorithm
+    * Step 1: For each datapoint in the training dataset calculate _x<sup>2</sup>_ and _xy_ 
+    * Step 2: Find the summation of _x, y, x<sup>2</sup> and xy_.
+    * Step 3: Calculate the slope _m = [(N* Σ(xy)) - (Σx * Σy)]/[(N* Σx<sup>2</sup>) - (Σx)<sup>2</sup>]_
+    * Step 4: Calculate _y_ intercept _b = [Σy - (m * Σx)]/N_
+    * Step 5: Assemble the equation of the line _y = m * x + c_
+
+
+### Principle Component Analysis
+
+* Overview
+    * 
+
+* Algorithm
+    * Step 1: Consider a dataset having n features or variables denoted by _x1, x2, x3, ... , x<sub>n</sub>_  
+    * Step 2: Compute the means of the variables _avg.x<sub>i</sub> = (x<sub>i1</sub> + <sub>i2</sub> +...+ x<sub>in</sub>)/N_
+    * Step 3: Calculate the covariance matrix _Cov(x<sub>j</sub>, x<sub>j</sub>) = [Σ<sub>k = (1, N)</sub> (x<sub>ik</sub> - avg.x<sub>i</sub>) * (x<sub>jk</sub> - avg.x<sub>j</sub>)]/(N-1)_ 
+    * Step 4: Calculate the Eigen values and Eigen vectors of the covariance matrix
+    * Step 5: Derive the new dataset, Order the Eigen values in descending order and eigen vector corresponding to the largest Eigen Vector is the 1st Principle Component.
+
+
+### Logistic Regression
+
+* Overview
+    * 
+
+* Algorithm
+    * Step 1: Data Collection: Have a dataset cinsisting of more than 1 independent feature and class membership.
+    * Step 2: Data Processing: Perform necessary data cleaning and feature scaling.
+    * Step 3: Initialize the Logistic Regression parameters.
+    * Step 4: Define the hypothesis function that maps features to the predicted probability of the positive class.
+                _hΘ = 1/(1 + e<sup>-ΘTx</sup>)_
+
+
+
+ 
