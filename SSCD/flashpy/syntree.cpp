@@ -1,24 +1,38 @@
 #include<iostream>
 #include<conio.h>
 #include<string.h>
-#include<unordered_map>
+#include<vector>
+#include<stack>
+
+using namespace std;
 
 class Node
 {
     public:
-    int val;
-    float val;
-    char op;
+    string id;
+    string val;
+    Node* left = NULL;
+    Node* right = NULL;
 };
+Node* root = NULL;
 
 class Syntax
 {
 
     public:
 
-    Node* syntree()
+    Node* new_node()
     {
+        
+    }
 
+    void syntree(vector<pair<string, string>>& exp)
+    {
+        for (auto& it : exp)
+        {
+
+        }
+        
     }
 
 };
