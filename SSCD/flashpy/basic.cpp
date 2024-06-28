@@ -12,15 +12,6 @@ componentalize tokenizing for words and digits
 #include<vector>
 
 using namespace std;
- 
-unordered_map<string, string> tokens;
-unordered_map<char, string> operators = {
-    {'+' , "ADD"},
-    {'-' , "SUB"},
-    {'*' , "MUL"},
-    {'/' , "DIV"},
-    {'^' , "POW"},
-};
 
 
 class Error
@@ -36,12 +27,35 @@ class Error
 
 class Lexer : public Error
 {
+    private:
+    vector<pair<string, string>> tokens;
+    unordered_map<char, string> operators = {
+        {'+' , "ADD"},
+        {'-' , "SUB"},
+        {'*' , "MUL"},
+        {'/' , "DIV"},
+        {'^' , "POW"},
+    };
+    bool isFloat = false;
+
     public:
 
-    unordered_map<string, string> tokenize(string text)
+    void flush_token(string& build)
+    {
+        if(!build.empty())
+        {
+            if(isFloat == true)
+                tokens.push_back(pair(build, "FLOAT"));
+            else
+                tokens.push_back(pair(build, "INT"));
+            
+            build.clear();
+        }
+    }
+
+    vector<pair<string, string>> tokenize(string text)
     {
         string digits, words;
-        bool isFloat = false;
 
         for(auto &sym : text)
         {
@@ -51,42 +65,28 @@ class Lexer : public Error
 
             else if(!isalnum(sym))
             {
-                if(!digits.empty())
-                {
-                    if(isFloat == true)
-                        tokens[digits] = "FLOAT";
-                    else
-                        tokens[digits] = "INT";
-                    
-                    digits.clear();
-                }
+                flush_token(digits);
                 switch(sym)
                 {
-                    case '+': tokens["+"] = operators[sym];
+                    case '+': tokens.push_back(pair("+", operators[sym]));
                         break;
-                    case '-': tokens["-"] = operators[sym];
+                    case '-': tokens.push_back(pair("-", operators[sym]));
                         break;
-                    case '*': tokens["*"] = operators[sym];
+                    case '*': tokens.push_back(pair("*", operators[sym]));
                         break;
-                    case '/': tokens["/"] = operators[sym];
+                    case '/': tokens.push_back(pair("/", operators[sym]));
                         break;
-                    case '^': tokens["^"] = operators[sym];
+                    case '^': tokens.push_back(pair("^", operators[sym]));
                         break;
                     default: err(sym);
                 }
             }
+            if(sym == ' ')
+                continue;              
             else
                 err(sym);
             }
-            if(!digits.empty())
-            {
-                if(isFloat == true)
-                    tokens[digits] = "FLOAT";
-                else
-                    tokens[digits] = "INT";
-                
-                digits.clear();
-            }
+            flush_token(digits);
         return tokens;
     }
 };
@@ -94,8 +94,8 @@ class Lexer : public Error
 int main()
 {
     Lexer l;
-    string text = "24+25";
-    unordered_map<string, string> res;
+    string text = "24+50*60+70";
+    vector<pair<string, string>> res;
     res = l.tokenize(text);
     for(auto &it : res)
         cout<<it.first<<" : "<<it.second<<endl;

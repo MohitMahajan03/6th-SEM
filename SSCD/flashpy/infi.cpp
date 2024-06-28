@@ -1,56 +1,62 @@
 #include<iostream>
 #include<conio.h>
-#include<string.h>
+#include<string>
 #include<stack>
+#include<vector>
+#include<unordered_map>
 
 using namespace std;
 
-stack<char> stacks;
+stack<pair<string, string>> stacks;
 
 class Convert
 {
     public:
 
-    int prece(char ch)
+    int prece(string ch)
     {
-        switch(ch)
+        
+        for(char op : ch)
         {
+            switch(op)
+            {
 
-            case '^': return 5;
-            case '/': return 4;
-            case '*': return 3;
-            case '+': return 2;
-            case '-': return 1;
+                case '^': return 5;
+                case '/': return 4;
+                case '*': return 3;
+                case '+': return 2;
+                case '-': return 1;
+            }
         }
         return 0;
     }
 
-    string postfix(string text)
+    vector<pair<string, string>> postfix(vector<pair<string, string>> tokens)
     {
-        string exp;
-        for(auto &ch : text)
+        vector<pair<string, string>> exp;
+        for(const auto &it : tokens)
         {
-            if(isalnum(ch))
-                exp += ch;
+            if(it.second == "INT" || it.second == "FLOAT")
+                exp.push_back(pair(it.first, it.second));
             else
             {
-                int curr_opt = prece(ch);
+                int curr_opt = prece(it.first);
                 if(stacks.empty())
-                    stacks.push(ch);
+                    stacks.push(it);
                 else
                 {
-                    while(!stacks.empty() && prece(stacks.top()) >= curr_opt)
+                    while(!stacks.empty() && prece(stacks.top().first) >= curr_opt)
                     {
-                        exp += stacks.top();
+                        exp.push_back(pair(stacks.top().first, stacks.top().second));
                         stacks.pop();
                     }
-                    stacks.push(ch);
+                    stacks.push(it);
                 }
             }
         }
         while(!stacks.empty())
         {
-            exp += stacks.top();
+            exp.push_back(pair(stacks.top().first, stacks.top().second));
             stacks.pop();
         }
         return exp;
@@ -61,6 +67,17 @@ class Convert
 int main()
 {
     Convert c;
-    cout<<c.postfix("4+6*2");    
+    vector<pair<string, string>> tokens = {
+        {"25" , "INT"},
+        {"+" , "ADD"},
+        {"50" , "INT"},
+        {"*" , "MUL"},
+        {"60" , "INT"},
+        {"+" , "ADD"},
+        {"70" , "INT"}
+    };
+    vector<pair<string, string>>res = c.postfix(tokens);
+    for(auto &it : res)
+        cout<<it.first<<" : "<<it.second<<endl;    
     return 0;
 }
