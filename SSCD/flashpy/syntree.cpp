@@ -3,6 +3,7 @@
 #include<string.h>
 #include<vector>
 #include<stack>
+#include<queue>
 
 using namespace std;
 
@@ -28,7 +29,7 @@ class Syntax
 {
 
     private:
-    stack<pair<string, string>> stacks;
+    queue<pair<string, string>> que;
     Node* op_node = NULL;
     Node* num_node = NULL;
     public:
@@ -39,7 +40,7 @@ class Syntax
         {
             if(it.second == "INT" || it.second == "FLOAT")
             {
-                stacks.push(it);
+                que.push(it);
             }
             else
             {
@@ -47,17 +48,18 @@ class Syntax
                 if(root == NULL)
                 {
                     root = op_node;
-                    num_node = new Node(stacks.top().first, stacks.top().second);
+                    num_node = new Node(que.front().first, que.front().second);
                     root->left = num_node;
-                    stacks.pop();
-                    num_node = new Node(stacks.top().first, stacks.top().second);
+                    que.pop();
+                    num_node = new Node(que.front().first, que.front().second);
                     root->right = num_node;
+                    que.pop();
                 }
                 else
                 {
                     op_node->left = root;
-                    num_node = new Node(stacks.top().first, stacks.top().second);
-                    stacks.pop();
+                    num_node = new Node(que.front().first, que.front().second);
+                    que.pop();
                     op_node->right = num_node;
                     root = op_node;
                 }
@@ -66,7 +68,30 @@ class Syntax
     }
 };
 
+
+void inorder(Node* root)
+{
+    if(root == NULL)
+        return;
+    inorder(root->left);
+    cout<<root->val<<" ";
+    inorder(root->right);
+}
+
 int main()
 {
+    vector<pair<string, string>> exp = {
+        {"25", "INT"},
+        {"50", "INT"},
+        {"60", "INT"},
+        {"*", "MUL"},
+        {"+", "ADD"},
+        {"70", "INT"},
+        {"+", "ADD"},
+    };
+    Syntax s;
+    s.syntree(exp);
+    cout<<"All fine"<<endl;
+    inorder(root);
     return 0;
 }
