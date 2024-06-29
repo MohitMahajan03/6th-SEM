@@ -72,10 +72,14 @@ class Syntax
 void inorder(Node* root)
 {
     if(root == NULL)
+    {
         return;
+    }
+    cout<<"(";
     inorder(root->left);
-    cout<<root->val<<" ";
+    cout<<root->val;
     inorder(root->right);
+    cout<<")";
 }
 
 int main()
