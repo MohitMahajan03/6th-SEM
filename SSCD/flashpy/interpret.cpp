@@ -41,8 +41,8 @@ class Interpret : public Node
 
     void eval(any acc, string operation, any buff)
     {
-        if(operation == "ADD")
-            acc = acc + buff;
+        // if(operation == "ADD")
+        //     acc = acc + buff;
     }
 
 };
