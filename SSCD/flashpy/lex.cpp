@@ -85,8 +85,8 @@ class Lexer : public Error
                 continue;              
             else
                 err(sym);
-            }
-            flush_token(digits);
+        }
+        flush_token(digits);
         cout<<"Generating tokens..."<<endl;
         for(auto &it : tokens)
             cout<<it.first<<" : "<<it.second<<" ";
