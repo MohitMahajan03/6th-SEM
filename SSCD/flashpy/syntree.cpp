@@ -32,6 +32,7 @@ class Syntax
     queue<pair<string, string>> que;
     Node* op_node = NULL;
     Node* num_node = NULL;
+    queue<pair<string, string>> final_exp; 
     public:
 
     void syntree(vector<pair<string, string>>& exp)
@@ -66,21 +67,22 @@ class Syntax
             }
         }
     }
-};
 
-
-void inorder(Node* root)
-{
-    if(root == NULL)
+    
+    void inorder(Node* root)
     {
-        return;
+        if(root == NULL)
+        {
+            return;
+        }
+        cout<<"(";
+        inorder(root->left);
+        cout<<root->val;
+        final_exp.push(pair(root->val, root->id));
+        inorder(root->right);
+        cout<<")";
     }
-    cout<<"(";
-    inorder(root->left);
-    cout<<root->val;
-    inorder(root->right);
-    cout<<")";
-}
+};
 
 int main()
 {
@@ -96,6 +98,6 @@ int main()
     Syntax s;
     s.syntree(exp);
     cout<<"All fine"<<endl;
-    inorder(root);
+    s.inorder(root);
     return 0;
 }

@@ -1,48 +1,59 @@
+// needs exptensice thought and fixing
+
 #include<iostream>
 #include<conio.h>
 #include<any>
-#include "syntree.cpp"
+#include<queue>
 using namespace std;
 
-class Interpret : public Node
+class Interpret
 {
-    any acc, buff;
+    int acc, buff;
     string operation;
-    bool is_start = false;
+    bool is_float = false;
     public:
 
-    void calc(Node* root)
+    void calc(queue<pair<string, string>> eval)
     {
-        if(root == NULL)
-        {
-            return;
-        }
-        calc(root->left);
-        if(root->id != "INT" && root->id != "FLOAT")
-            operation = root->id;
-        else if(!is_start && (root->id == "INT" || root->id == "FLOAT"))
-        {
-            if(root->id == "INT")
-                acc = stoi(root->val);
-            else if(root->id == "FLOAT")
-                acc = stof(root->val);
+        // if(eval.front().second == "INT")
+        //     acc = stoi(eval.front().first);
+        // else
+        // {
+        //     acc = (float)acc;
+        //     acc = stof(eval.front().first);
+        // }
+        // eval.pop();
+        // operation = eval.front().second;
+        // eval.pop();
+        // buff = eval.front().first;
+        // eval.pop();
 
-            is_start = true;
-        }
-        else
-        {
-            if(root->id == "INT")
-                buff = stoi(root->val);
-            else if(root->id == "FLOAT")
-                buff = stof(root->val);
-        }
-        calc(root->right);
+        // while(!eval.empty())
+        // {
+        //     operation = eval.front().second;
+        //     eval.pop();
+        //     buff = eval.front().first;
+        //     eval.pop();
+        // }
     }
 
-    void eval(any acc, string operation, any buff)
+    void operate()
     {
+        // if(acc.type().name() == "float" || buff.type().name() == "float")
+        // {
+        //     any_cast<float>(acc);
+        //     any_cast<float>(buff);
+        //     is_float = true;
+        // }
+        // else
+        // {
+        //     any_cast<int>(acc);
+        //     any_cast<int>(buff);
+        // }
         // if(operation == "ADD")
+        // {
         //     acc = acc + buff;
+        // }
     }
 
 };
