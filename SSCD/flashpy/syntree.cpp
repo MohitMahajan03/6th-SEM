@@ -51,18 +51,18 @@ class Syntax
                 {
                     root = op_node;
                     num_node = new Node(nums.top().first, nums.top().second);
-                    root->left = num_node;
+                    root->right = num_node;
                     nums.pop();
                     num_node = new Node(nums.top().first, nums.top().second);
-                    root->right = num_node;
+                    root->left = num_node;
                     nums.pop();
                 }
                 else
                 {
-                    op_node->left = root;
+                    op_node->right = root;
                     num_node = new Node(nums.top().first, nums.top().second);
                     nums.pop();
-                    op_node->right = num_node;
+                    op_node->left = num_node;
                     root = op_node;
                 }
             }
@@ -70,6 +70,7 @@ class Syntax
         cout<<"Creating Syntax Tree..."<<endl;
         inorder(root);
         cout<<endl;
+        destroy(root);
         return final_exp;
     }
 
@@ -77,15 +78,21 @@ class Syntax
     void inorder(Node* root)
     {
         if(root == NULL)
-        {
             return;
-        }
         cout<<"(";
         inorder(root->left);
         cout<<root->val;
         final_exp.push(pair(root->val, root->id));
         inorder(root->right);
         cout<<")";
+    }
+    void destroy(Node* root)
+    {
+        if(root == NULL)
+            return;
+        destroy(root->left);
+        destroy(root->right);
+        delete(root);
     }
 };
 

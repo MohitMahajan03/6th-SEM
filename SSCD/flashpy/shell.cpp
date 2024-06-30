@@ -26,6 +26,8 @@ int main()
     {
         cout<<"flashpy > ";
         cin>>text;
+        if(text == "exit")
+            exit(0);
         vec = lex.tokenize(text);
         vec = grammar.postfix(vec);
         que = syn_tree.syntree(vec);
