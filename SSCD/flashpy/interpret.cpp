@@ -27,7 +27,7 @@ class Interpret
         if(operation == "DIV")
             acc = acc / buff;
         if(operation == "POW")
-            acc = pow(any_cast<double>(acc), any_cast<double>(buff));
+            acc = pow(acc, buff);
     }
 
     void calc(queue<pair<string, string>> eval)
