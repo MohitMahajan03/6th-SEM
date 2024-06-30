@@ -87,17 +87,21 @@ class Lexer : public Error
                 err(sym);
             }
             flush_token(digits);
+        cout<<"Generating tokens..."<<endl;
+        for(auto &it : tokens)
+            cout<<it.first<<" : "<<it.second<<" ";
+        cout<<endl;  
         return tokens;
     }
 };
 
-int main()
-{
-    Lexer l;
-    string text = "24+50*60+70";
-    vector<pair<string, string>> res;
-    res = l.tokenize(text);
-    for(auto &it : res)
-        cout<<it.first<<" : "<<it.second<<endl;
-    return 0;
-}
+// int main()
+// {
+//     Lexer l;
+//     string text = "24+50*60+70";
+//     vector<pair<string, string>> res;
+//     res = l.tokenize(text);
+//     for(auto &it : res)
+//         cout<<it.first<<" : "<<it.second<<endl;
+//     return 0;
+// }

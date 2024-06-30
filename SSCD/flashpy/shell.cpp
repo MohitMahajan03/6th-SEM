@@ -1,17 +1,35 @@
 //BUILD a custom print method for all files
 #include <iostream>
 #include <conio.h>
+#include "lex.cpp"
+#include "infi.cpp"
+#include "syntree.cpp"
+#include "interpret.cpp"
+#include <vector>
+#include <queue>
 
 using namespace std;
 
+vector<pair<string, string>> vec;
+queue<pair<string, string>> que;
+float result;
+
 int main()
 {
+    Lexer lex;
+    Convert grammar;
+    Syntax syn_tree;
+    Interpret interpret;
+
     string text;
     while(1)
     {
         cout<<"flashpy > ";
         cin>>text;
-        // cout<<endl<<text<<endl;
+        vec = lex.tokenize(text);
+        vec = grammar.postfix(vec);
+        que = syn_tree.syntree(vec);
+        interpret.calc(que);
     }
     return 0;
 }

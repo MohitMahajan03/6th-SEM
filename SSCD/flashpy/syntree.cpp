@@ -29,19 +29,20 @@ class Syntax
 {
 
     private:
-    queue<pair<string, string>> que;
+    queue<pair<string, string>> final_exp;
     Node* op_node = NULL;
     Node* num_node = NULL;
-    queue<pair<string, string>> final_exp; 
+    stack<pair<string, string>> nums;
+
     public:
 
-    void syntree(vector<pair<string, string>>& exp)
+    queue<pair<string, string>> syntree(vector<pair<string, string>>& exp)
     {
         for (auto& it : exp)
         {
             if(it.second == "INT" || it.second == "FLOAT")
             {
-                que.push(it);
+                nums.push(it);
             }
             else
             {
@@ -49,23 +50,27 @@ class Syntax
                 if(root == NULL)
                 {
                     root = op_node;
-                    num_node = new Node(que.front().first, que.front().second);
+                    num_node = new Node(nums.top().first, nums.top().second);
                     root->left = num_node;
-                    que.pop();
-                    num_node = new Node(que.front().first, que.front().second);
+                    nums.pop();
+                    num_node = new Node(nums.top().first, nums.top().second);
                     root->right = num_node;
-                    que.pop();
+                    nums.pop();
                 }
                 else
                 {
                     op_node->left = root;
-                    num_node = new Node(que.front().first, que.front().second);
-                    que.pop();
+                    num_node = new Node(nums.top().first, nums.top().second);
+                    nums.pop();
                     op_node->right = num_node;
                     root = op_node;
                 }
             }
         }
+        cout<<"Creating Syntax Tree..."<<endl;
+        inorder(root);
+        cout<<endl;
+        return final_exp;
     }
 
     
@@ -84,20 +89,20 @@ class Syntax
     }
 };
 
-int main()
-{
-    vector<pair<string, string>> exp = {
-        {"25", "INT"},
-        {"50", "INT"},
-        {"60", "INT"},
-        {"*", "MUL"},
-        {"+", "ADD"},
-        {"70", "INT"},
-        {"+", "ADD"},
-    };
-    Syntax s;
-    s.syntree(exp);
-    cout<<"All fine"<<endl;
-    s.inorder(root);
-    return 0;
-}
+// int main()
+// {
+//     vector<pair<string, string>> exp = {
+//         {"25", "INT"},
+//         {"50", "INT"},
+//         {"60", "INT"},
+//         {"*", "MUL"},
+//         {"+", "ADD"},
+//         {"70", "INT"},
+//         {"+", "ADD"},
+//     };
+//     Syntax s;
+//     s.syntree(exp);
+//     cout<<"All fine"<<endl;
+//     s.inorder(root);
+//     return 0;
+// }

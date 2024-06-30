@@ -59,25 +59,31 @@ class Convert
             exp.push_back(pair(stacks.top().first, stacks.top().second));
             stacks.pop();
         }
+        cout<<"After applying grammar" <<endl;
+        cout<<"(";
+        for(auto &it : exp)
+            cout<<it.first<<" : "<<it.second<<" ";
+
+        cout<<")"<<endl;    
         return exp;
     }
 };
 
 
-int main()
-{
-    Convert c;
-    vector<pair<string, string>> tokens = {
-        {"25" , "INT"},
-        {"+" , "ADD"},
-        {"50" , "INT"},
-        {"*" , "MUL"},
-        {"60" , "INT"},
-        {"+" , "ADD"},
-        {"70" , "INT"}
-    };
-    vector<pair<string, string>>res = c.postfix(tokens);
-    for(auto &it : res)
-        cout<<it.first<<" : "<<it.second<<endl;    
-    return 0;
-}
+// int main()
+// {
+//     Convert c;
+//     vector<pair<string, string>> tokens = {
+//         {"25" , "INT"},
+//         {"+" , "ADD"},
+//         {"50" , "INT"},
+//         {"*" , "MUL"},
+//         {"60" , "INT"},
+//         {"+" , "ADD"},
+//         {"70" , "INT"}
+//     };
+//     vector<pair<string, string>>res = c.postfix(tokens);
+//     for(auto &it : res)
+//         cout<<it.first<<" : "<<it.second<<endl;    
+//     return 0;
+// }
