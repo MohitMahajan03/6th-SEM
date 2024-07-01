@@ -245,9 +245,184 @@ electronics, output signal format, and lens, as shown in Fig.
 
 
 # 8. Explain the steps involved in vision system
+
+As depicted in Fig. 4.21, vision sensing has two steps, namely, image acquisition and image processing. They are explained below.
+• Image Acquisition
+• Image Processing
+• Image Analysis
+<img src = "steps.png">
+
+### Image Acquisition 
+• In image acquisition, an image is acquired from a vidicon which is digitized or from a digital camera (CCD or CID).
+• The image is stored in computer memory (also called a frame buffer) in the format such as TIFF, JPG, Bitmap, etc.
+• The buffer may be a part of the frame grabber card or in the computer itself.
+• Note that the image acquisition is primarily a hardware function, however, software can be used to control light intensity, focus, camera angle, synchronization, field of view, read times, and other functions.
+
+• Image acquisition has four principle elements, namely,
+    • a light source, either controlled or ambient,
+    • a lens that focuses reflected light from the object on to the image sensor,
+    • an image sensor that converts the light image into a stored electrical     image, and
+    • the electronics to read the sensed image from the image sensing element, and after processing, transmit the image information to a     computer for further processing.
+• A typical acquired image is shown in Fig. 4.22.
+
+### Image Processing 
+• Image-processing techniques are used to enhance, improve, or otherwise alter an image and to prepare it for image analysis.
+• Usually, during image processing, information is not extracted from the image.
+• The intention is to remove faults, trivial information, or information that may be important, and to improve the image.
+• Image processing examines the digitized data to locate and recognize an object within the image field. It is divided into several sub-processes, which are discussed below: Image Data Reduction, Histogram Analysis, Thresholding, Masking
+
+### Image Data Reduction 
+• The objective is to reduce the volume of data. As a preliminary step in the data analysis, the schemes like digital conversion or windowing can be applied to reduce the data.
+• While the digital conversion reduces the number of gray levels used by the vision system, windowing involves using only a portion of the total image stored in the frame buffer for image processing and analysis.
+• For example, in windowing, to inspect a circuit board, a rectangular window is selected to surround the component of interest and only pixels within that window are analysed.
+
+### Image Analysis 
+• Image analysis is a collection of operations and techniques that are used to extract information from images.
+• Among these are feature extraction; object recognition; analysis of the position, size, orientation; extraction of depth information, etc.
+• Some techniques can be used for multiple purposes.
+• For example, moment equations may be used for object recognition, as well as to calculate the position and orientation of an object.
+• It is assumed that image processing has already been performed to the image and available for the image analysis.
+• Some of the image analysis techniques are explained.
+• Feature Extraction
+• Object Recognition
+
 # 9. Explain the hierarchy of a vision system
+
+### Hierarchy of a Vision System
+• The collection of processes involved in visual perception are often perceived as a hierarchy spanning the range from ‘low’ via ‘intermediate’ to ‘high-level’ vision.
+• The notion of ‘low’ and ‘high’ vision are used routinely, but there is no clear definition of the distinction between what is considered ‘high’ as opposed to ‘low-level’ vision.
+• As shown in Fig. 4.28, a vision is classified as ‘low’, ‘intermediate’ or ‘high-level’ vision based on specific activities during the image
+
+### Low-level Vision 
+• One may, for example, be interested in extracting uniform regions, where the gradient of the pixels remains constant, or first-order
+changes in gradient, which would correspond to straight lines, or second-order changes which could be used to extract surface properties such as peaks, pits, ridges, etc.
+• A number of characteristics that are typically associated with low-level vision processes are as follows:
+• They are spatially uniform and parallel, i.e., with allowance for the decrease in resolution from the center of the visual field outwards,
+similar process is applied simultaneously across the visual field. For example, processing involved in edge detection, motion, or stereo
+vision, often proceed in parallel across the visual field, or a large part of it.
+• Low-level visual processes are also considered ‘bottom-up’ in nature. This means that they are determined by the data, i.e., data driven, and
+are relatively independent of the task at hand or knowledge associated with specific objects. As far as the edge detection is concerned, it will be performed in the same manner for images of different objects, with no regard to whether the task to do with moving around, looking for a misplaced object, or enjoying the landscape.
+
+### Intermediate-level Vision 
+• In this level, objects are recognized and 3D scenes are interpreted using the features obtained from the low-level vision. The intermediate-level processing is fundamentally concerned with grouping entities together.
+• The simplest case is when one groups pixels into lines. One can then express the line in a functional form. Similarly, if the output of the low-level information is a depth map, one may further need to distinguish object boundaries, or other characteristics.
+• Even in the simple case where one is trying to extract a single sphere, it is not an easy process to go from a surface-depth representation to a center-and radius representation. In contrast to higher-level vision, the process here does not depend on the knowledge about specific object
+
+### High-level Vision 
+• High-level vision, which is equivalent to image understanding, is concerned mainly with the interpretation of scene in terms of the objects in it, and is usually based on knowledge of specific objects and relationships.
+• It is concerned primarily with the interpretation and use of information in the image rather than the direct recovery of physical properties. In high-level vision, interpretation of a scene goes beyond the tasks of line extraction and grouping.
+• It further requires decisions to be made about types of boundaries, such as which are occluding, and what information is hidden from the user
+• Further grouping is essential at this stage since one may still need to be
+able to decide which lines group together to form an object.
+• To do this, it is necessary to further distinguish lines which are part of the
+object structure, from those which are part of a surface texture, or caused
+by shadows.
+• High-level systems are, therefore, object oriented, and sometimes called ‘top-down’. High-level visual processes are applied to a selected portion of the image, rather than uniformly across the entire image, as done in low and intermediate-level visions.
+• They almost always require some form of knowledge about the objects of the scene to be included.
+
 # 10. What are the typical difficulties in a vision system.
+
+• A vision system cannot uniquely represent or process all available data because of computational problem, memory, and processing-time requirements imposed on the computer. Therefore, the system must compromise.
+• Other problems include variation of light, part-size, part placement, and limitations in the dynamic ranges available in typical vision sensors.
+• A vision system requires specialized hardware and software. It is possible to purchase just the hardware with little or no vision application programming. In fact, a few third-party programs are available.
+• A hardware-only approach is less expensive and can be more flexible for handling usual vision requirements.
+• But, since this approach requires image processing expertise, it is only of interest to users who wish to retain the responsibility of image
+interpretation.
+• It is usual practice to obtain the hardware and application software together from the supplier. However, the user might still need custom rogramming for an application.
+• Major vision system suppliers specialize in providing software for only a few application areas.
+• Every vision system requires a sensor to cover the visual image into an electronic signal.
+• Several types of video sensors are used, including vidicon cameras, vacuum tube devices, and solid-state sensors.
+• Many of these vision systems were originally designed for other applications, such as television so the signal must be processed to extract the visual image and remove synchronization information before the signal is sent to the computer for further processing.
+• The computer then treats this digital signal as the array pixels, and processes this data to extract the desired information. Image processing can be very time consuming.
+• For a typical sensor of 200,000 or more pixels, a vision system can take many seconds, even minutes, to analyze the complete scene and determine the action to be taken. The number of bits to be processed is quite large,
+
+
 # 11. Explain some of the commonly used devices for signal conditioning
+
+• The basic information or data generated by the transducers (or sensors) generally requires ‘conditioning’ or ‘processing’ of one sort or another before they are presented to the observer as an indication or a record, or to be used by a robot controller for further action.
+
+### Amplifiers
+• Since the electrical signals produced by most transducers of a sensor are at a low voltage, generally they require amplification before they are suitably recognized by a monitoring system like a data processor, controller, or data logger.
+• The operational amplifier (op-amp) is the most widely utilized analog electronic sub-assembly. It is the basis of instrumentation amplifier, filters, and a myriad of analog and digital data-processing equipment.
+• An op-amp could be manufactured in the discrete-element form using, say, ten bipolar junction transistors and as many discrete resistors or alternatively (and preferably) in the monolithic form as in IC (Integrated Circuit) chip that may be equivalent to over 100 discrete elements
+• In any form, the device has an input impedance Zi, an output impedance Zo and a gain K, as indicated in Fig. 4.30(a).
+• A common 8-pin dual in-line package (DIP) or V-package is shown
+
+<img src = "opamp.png">
+
+### Filters
+• A filter is a device that allows through only the desirable part of a signal, rejecting the unwanted part. Unwanted signals can seriously
+degrade the performance of a robotic system.
+• External disturbances, error components in excitations, and noise generated internally within system components and instrumentation are such spurious signals, which may be removed by a filter.
+• There are four broad categories of filters, namely, low-pass filters, high pass filters, band-pass filters, and band-reject (or notch) filters, which are shown in Fig. 4.31.
+
+<img src = "filters.png">
+
+### Modulators and Demodulators
+• Signals are sometimes deliberately modified to maintain the accuracy during their transmission, conditioning, and processing.
+• In modulation, the data signal which is referred to as modulating signal is used to vary a property, say, amplitude or frequency, of a carrier signal. Thus, the carrier signal is modulated by the data signal.
+• After transmitting or conditioning, the data signal is recovered by removing the carrier signal from the modulated signal. This step is known as demodulation. The carrier signal can be either sine or square wave, and its frequency should be 5–10 times the highest frequency of the data signal.
+
+<img src = "ammods.png">
+
+• This is called Amplitude Modulation (AM), and the resulting amplitude modulated signal is shown in Fig. 4.32(b).
+• In Fig. 4.32(c), however, the frequency of the carrier signal is varied in proportion to the amplitude of the data signal (modulating signal), while keeping the amplitude of the carrier signal constant. This is called Frequency Modulation (FM).
+• An FM is less susceptible to noise than AM.
+• In Pulse-Width Modulation (PWM), the carrier signal is a pulse sequence, and its width is changed in proportion to the amplitude of the data signal, while keeping the pulse spacing constant. This is shown in Fig. 4.32(d).
+• The PWM signals can be used directly in controlling a process without having to demodulate them.
+• There also exists Pulse-Frequency Modulation (PFM), where the carrier signal is a pulse sequence. Here, the frequency of the pulses is changed in proportion to the value of the data signal, while keeping the pulse width constant. It has the advantages of ordinary FM.
+• Demodulation or detection is the process of extracting the original data signal from a modulated signal. A simple and straightforward method of demodulation is by detection of the envelope of the modulated signal.
+
+### Analog and Digital Conversions
+• Most sensors have analog output while much data processing is done using digital computers. Hence, devices for conversion between these two domains have to be performed.
+• These can be achieved using
+• An analog-to-digital converter (ADC) and
+• A digital-to-analog converter (DAC)
+
+#### Digital-to-Analog Converter ( DAC) 
+• The function of a digital-to-analog convertor or DAC is to convert a sequence of digital words stored in a data register, typically in the
+straight binary form, into an analog signal.
+• A typical DAC unit is an active circuit in the integrated circuit (IC) form and consists of a data register (digital circuits), solid-state switching circuits, resistors, and op-amps powered by an external power supply.
+• The IC chip that represents the DAC is usually one of many components mounted on a Printed Circuit Board (PCB), which is the I/O board or card. This board is plugged into a slot of the PC having DAQ.
+
+#### Analog-to-Digital Converter ( ADC) 
+• An analog-to-digital converter or ADC, on the other hand, converts an analog signal into the digital form, according to an appropriate code, before the same is used by a digital processor or a computer.
+• The process of analog-to-digital conversion is more complex and time consuming than the digital-to-analog conversion.
+• ADCs are usually more costly, and their conversion rate is slower than DACs.
+• Several types of ADCs are commercially available. However, their principle of operation may vary depending on the type.
+• Note that the most fundamental property of any DAC or ADC is their number of bits for which it is designed, since this is a basic limit on resolution.
+• Units of 8 to 12 bits are most common even though higher bits are also available.
+• Both DAC and ADC are elements in typical input/output board (or I/O board, or data acquisition and control card, i.e., DAC or DAQ), which are usually situated on the same digital interface board.
+
+### Bridge Circuits
+• Various bridge circuits are employed widely for the measurement of resistance, capacitance, and inductance, as many transducers convert physical variables to these quantities.
+• Figure 4.33 shows a purely resistive (Wheatstone) bridge in its simplest form.
+• The basic principle of the bridge may be applied in two different ways, namely, the null method and the deflection method
+• If the resistances are adjusted so that the bridge is balanced then there is no voltage across AC, i.e., VAC = 0. This happens when R1/R4 = R2/R3.
+• Now if one of the resistors, say, R1, changes its resistance then there will be unbalance in the bridge and a voltage will appear across VAC causing a meter reading.
+• This meter reading is an indication of the change in R1 of the transducer element, and can be utilized to compute the change. This method of measurement is called the deflection method.
+• In the null method, one of the resistors is adjustable manually.
+• Thus, if R1 changes causing a meter deflection, R2 can be adjusted manually till its effect just cancels that of R1 and the bridge is returned to its balanced position.
+• Here, the change in R1 is directly related to the change in R2 required to effect the balance.
+• Note that both the deflection and null methods require a calibration curve so that one knows the numerical values of R1 or R2 that has caused the imbalance or balance, respectively.
+• Note that the measurements of rapid dynamic phenomenon can be done using the deflection method. Moreover, based on the alternate current (ac) and direct current (dc) excitations in the bridge, there are ac bridges and dc bridges, respectively
+
+<img src = "bridge.png">
+
+### Signal Analyzer
+• Modern signal analyzers employ digital techniques of signal analysis to extract useful information that is carried by the signal.
+• Digital Fourier analysis using Fast Fourier Transform (FFT) is perhaps the single most common procedure that is used in the vast majority of signal analyzers.
+• Fourier analysis produces the frequency spectrum of a time signal, which is explained here in brief. Any periodic signal f(t) can be decomposed into a number of sines and cosines of different amplitudes, an and bn, and frequencies nωt, for n = 1, 2, …•
+<img src = "exp.png">
+
+• If one adds sine and cosine functions together, the original signal can be reconstructed. Equation (4.25) is called a Fourier series,
+and the collection of different frequencies present in the equation is called the frequency spectrum or frequency content of the signal.
+• Even though the signal is in amplitude-time domain, the frequency spectrum is in the amplitude-frequency domain.
+• For example, for the function, f(t) = sin(t) of Fig. 4.34(a), which consists of only one frequency with constant amplitude, the plotted signal
+would be represented by a single line at the given frequency
+
+<img src = "sig_ana.png">
+
 # 12. Explain the following devices used for signal conditioning
 ## Amplifiers
 ## Filters
@@ -255,3 +430,5 @@ electronics, output signal format, and lens, as shown in Fig.
 ## Analog and digital conversions
 ## Bridge rectifiers
 ## Signal analyse
+
+>same as ans 11
