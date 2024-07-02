@@ -303,6 +303,8 @@ vision, often proceed in parallel across the visual field, or a large part of it
 • Low-level visual processes are also considered ‘bottom-up’ in nature. This means that they are determined by the data, i.e., data driven, and
 are relatively independent of the task at hand or knowledge associated with specific objects. As far as the edge detection is concerned, it will be performed in the same manner for images of different objects, with no regard to whether the task to do with moving around, looking for a misplaced object, or enjoying the landscape.
 
+<img src = "heirarchy.png">
+
 ### Intermediate-level Vision 
 • In this level, objects are recognized and 3D scenes are interpreted using the features obtained from the low-level vision. The intermediate-level processing is fundamentally concerned with grouping entities together.
 • The simplest case is when one groups pixels into lines. One can then express the line in a functional form. Similarly, if the output of the low-level information is a depth map, one may further need to distinguish object boundaries, or other characteristics.
