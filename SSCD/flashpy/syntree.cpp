@@ -34,10 +34,45 @@ class Syntax
     Node* num_node = NULL;
     stack<pair<string, string>> nums;
 
+    void inorder(Node* root)
+    {
+        if(root == NULL)
+            return;
+        cout<<"(";
+        inorder(root->right);
+        cout<<root->val;
+        final_exp.push(pair(root->val, root->id));
+        inorder(root->left);
+        cout<<")";
+    }
+    
+    void destroy(Node* root)
+    {
+        if(root == NULL)
+            return;
+        destroy(root->left);
+        destroy(root->right);
+        delete(root);
+    }
+
+    void wipe(stack<pair<string, string>> stacks)
+    {
+        while(!stacks.empty())
+            stacks.pop();
+    }
+
+    void wipe(queue<pair<string, string>> que)
+    {
+        while(!que.empty())
+            que.pop();
+    }
+
     public:
 
     queue<pair<string, string>> syntree(vector<pair<string, string>>& exp)
     {
+        wipe(nums);
+        wipe(final_exp);
         for (auto& it : exp)
         {
             if(it.second == "INT" || it.second == "FLOAT")
@@ -72,27 +107,6 @@ class Syntax
         cout<<endl;
         destroy(root);
         return final_exp;
-    }
-
-    
-    void inorder(Node* root)
-    {
-        if(root == NULL)
-            return;
-        cout<<"(";
-        inorder(root->right);
-        cout<<root->val;
-        final_exp.push(pair(root->val, root->id));
-        inorder(root->left);
-        cout<<")";
-    }
-    void destroy(Node* root)
-    {
-        if(root == NULL)
-            return;
-        destroy(root->left);
-        destroy(root->right);
-        delete(root);
     }
 };
 

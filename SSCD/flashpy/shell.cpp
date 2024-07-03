@@ -14,6 +14,12 @@ vector<pair<string, string>> vec;
 queue<pair<string, string>> que;
 float result;
 
+void wipe(queue<pair<string, string>> que)
+{
+    while(!que.empty())
+        que.pop();
+}
+
 int main()
 {
     Lexer lex;
@@ -24,6 +30,8 @@ int main()
     string text;
     while(1)
     {
+        vec.clear();
+        wipe(que);
         cout<<"flashpy > ";
         cin>>text;
         if(text == "exit")
@@ -32,6 +40,7 @@ int main()
         vec = grammar.postfix(vec);
         que = syn_tree.syntree(vec);
         interpret.calc(que);
+        
     }
     return 0;
 }

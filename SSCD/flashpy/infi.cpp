@@ -11,7 +11,14 @@ stack<pair<string, string>> stacks;
 
 class Convert
 {
-    public:
+
+    private:
+
+    void wipe(stack<pair<string, string>> stacks)
+    {
+        while(!stacks.empty())
+            stacks.pop();
+    }
 
     int prece(string ch)
     {
@@ -31,8 +38,11 @@ class Convert
         return 0;
     }
 
+    public:
+
     vector<pair<string, string>> postfix(vector<pair<string, string>> tokens)
     {
+        wipe(stacks);
         vector<pair<string, string>> exp;
         for(const auto &it : tokens)
         {

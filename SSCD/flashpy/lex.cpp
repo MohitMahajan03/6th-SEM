@@ -55,6 +55,7 @@ class Lexer : public Error
 
     vector<pair<string, string>> tokenize(string text)
     {
+        tokens.clear();
         string digits, words;
 
         for(auto &sym : text)

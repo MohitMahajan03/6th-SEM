@@ -32,6 +32,8 @@ class Interpret
 
     void calc(queue<pair<string, string>> eval)
     {
+        acc = 0;
+        buff = 0;
         if(eval.front().second == "INT" && !is_float)
             acc = stoi(eval.front().first);
         else
