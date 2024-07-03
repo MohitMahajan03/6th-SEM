@@ -80,10 +80,10 @@ class Syntax
         if(root == NULL)
             return;
         cout<<"(";
-        inorder(root->left);
+        inorder(root->right);
         cout<<root->val;
         final_exp.push(pair(root->val, root->id));
-        inorder(root->right);
+        inorder(root->left);
         cout<<")";
     }
     void destroy(Node* root)
