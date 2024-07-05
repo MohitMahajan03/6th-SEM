@@ -155,6 +155,7 @@ class Syntax : public Interpret
         cout<<"Creating Syntax Tree..."<<endl;
         inorder(root);
         cout<<endl;
+        cout<<"Evaluating Expression"<<endl;
         cout<<calc(root)<<endl;
         destroy(root);
         return root;
