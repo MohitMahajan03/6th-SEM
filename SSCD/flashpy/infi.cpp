@@ -44,6 +44,7 @@ class Convert
     {
         wipe(stacks);
         vector<pair<string, string>> exp;
+        exp.clear();
         for(const auto &it : tokens)
         {
             if(it.second == "INT" || it.second == "FLOAT")

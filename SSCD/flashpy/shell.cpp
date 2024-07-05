@@ -11,14 +11,7 @@
 using namespace std;
 
 vector<pair<string, string>> vec;
-queue<pair<string, string>> que;
 float result;
-
-void wipe(queue<pair<string, string>> que)
-{
-    while(!que.empty())
-        que.pop();
-}
 
 int main()
 {
@@ -31,15 +24,13 @@ int main()
     while(1)
     {
         vec.clear();
-        wipe(que);
         cout<<"flashpy > ";
         cin>>text;
         if(text == "exit")
             exit(0);
         vec = lex.tokenize(text);
         vec = grammar.postfix(vec);
-        que = syn_tree.syntree(vec);
-        interpret.calc(que);
+        syn_tree.syntree(vec);
         
     }
     return 0;

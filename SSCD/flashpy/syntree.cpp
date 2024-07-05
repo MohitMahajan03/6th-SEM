@@ -4,6 +4,7 @@
 #include<vector>
 #include<stack>
 #include<queue>
+#include<math.h>
 
 using namespace std;
 
@@ -25,24 +26,82 @@ class Node
 };
 Node* root = NULL;
 
-class Syntax
+class Interpret
+{
+    float acc, buff;
+    string operation;
+    void wipe(queue<pair<string, string>> que)
+    {
+        while(!que.empty())
+            que.pop();
+    }
+    public:
+    bool is_float = false;
+    float calc(Node* root)
+    {
+        if (root == NULL) 
+            return 0; 
+    
+        // leaf node i.e, an integer 
+        if (root->left == NULL && root->right == NULL)
+        {
+            if(root->id == "FLOAT")
+            {
+                is_float = true;
+                return stof(root->val);
+            }
+            if(root->id == "INT")
+                return stoi(root->val);
+        } 
+    
+        // Evaluate left subtree 
+        float l_val = calc(root->left); 
+    
+        // Evaluate right subtree 
+        float r_val = calc(root->right); 
+    
+        // Check which operator to apply 
+        if (root->id == "ADD")
+            return l_val+r_val; 
+    
+        else if (root->id == "SUB") 
+            return l_val-r_val; 
+    
+        else if (root->id == "MUL")
+            return l_val*r_val; 
+    
+        else if (root->id == "DIV")
+            return l_val/r_val;
+
+        else if (root->id == "POW")
+            return pow(l_val ,r_val);
+
+        else
+        {
+            cout<<root->id<<" Error occured: unidentified operation"<<endl;
+            return 0;
+        } 
+    }
+};
+
+
+class Syntax : public Interpret
 {
 
     private:
-    queue<pair<string, string>> final_exp;
+    vector<pair<string, string>> final_exp;
     Node* op_node = NULL;
     Node* num_node = NULL;
-    stack<pair<string, string>> nums;
-
+    stack<Node*> nums;
     void inorder(Node* root)
     {
         if(root == NULL)
             return;
         cout<<"(";
-        inorder(root->right);
-        cout<<root->val;
-        final_exp.push(pair(root->val, root->id));
         inorder(root->left);
+        cout<<root->val;
+        final_exp.push_back(pair(root->val, root->id));
+        inorder(root->right);
         cout<<")";
     }
     
@@ -55,58 +114,50 @@ class Syntax
         delete(root);
     }
 
-    void wipe(stack<pair<string, string>> stacks)
+    void wipe(stack<Node*> stacks)
     {
         while(!stacks.empty())
             stacks.pop();
     }
 
-    void wipe(queue<pair<string, string>> que)
-    {
-        while(!que.empty())
-            que.pop();
-    }
-
     public:
 
-    queue<pair<string, string>> syntree(vector<pair<string, string>>& exp)
+    Node* syntree(vector<pair<string, string>> exp)
     {
+        root = NULL;
         wipe(nums);
-        wipe(final_exp);
+        final_exp.clear();
+        Node* sub2 = NULL;
+        Node* sub1 = NULL;
         for (auto& it : exp)
         {
             if(it.second == "INT" || it.second == "FLOAT")
             {
-                nums.push(it);
+                num_node = new Node(it.first, it.second);
+                nums.push(num_node);
             }
             else
             {
                 op_node = new Node(it.first, it.second);
-                if(root == NULL)
-                {
-                    root = op_node;
-                    num_node = new Node(nums.top().first, nums.top().second);
-                    root->right = num_node;
-                    nums.pop();
-                    num_node = new Node(nums.top().first, nums.top().second);
-                    root->left = num_node;
-                    nums.pop();
-                }
-                else
-                {
-                    op_node->right = root;
-                    num_node = new Node(nums.top().first, nums.top().second);
-                    nums.pop();
-                    op_node->left = num_node;
-                    root = op_node;
-                }
+                sub2 = nums.top();
+                nums.pop();
+                sub1 = nums.top();
+                nums.pop();
+                op_node->left = sub1;
+                op_node->right = sub2;
+                nums.push(op_node);
+                sub1 = NULL;
+                sub2 = NULL;
             }
         }
+        root = nums.top();
+        nums.pop();
         cout<<"Creating Syntax Tree..."<<endl;
         inorder(root);
         cout<<endl;
+        cout<<calc(root)<<endl;
         destroy(root);
-        return final_exp;
+        return root;
     }
 };
 

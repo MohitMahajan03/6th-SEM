@@ -1,79 +1,12 @@
 // needs exptensice thought and fixing
-
 #include<iostream>
 #include<conio.h>
 #include<any>
 #include<queue>
 #include<math.h>
+#include<string.h>
 using namespace std;
 
-class Interpret
-{
-    float acc, buff;
-    string operation;
-    bool is_float = false;
-    public:
-
-    template <typename X> void operate(X& acc, X buff, string operation)
-    {
-        if(is_float)
-            any_cast<float>(acc);
-        if(operation == "ADD")
-            acc = acc + buff;
-        if(operation == "SUB")
-            acc = acc - buff;
-        if(operation == "MUL")
-            acc = acc * buff;
-        if(operation == "DIV")
-            acc = acc / buff;
-        if(operation == "POW")
-            acc = pow(acc, buff);
-    }
-
-    void calc(queue<pair<string, string>> eval)
-    {
-        acc = 0;
-        buff = 0;
-        if(eval.front().second == "INT" && !is_float)
-            acc = stoi(eval.front().first);
-        else
-        {
-            acc = stof(eval.front().first);
-            is_float = true;
-        }
-        eval.pop();
-        operation = eval.front().second;
-        eval.pop();
-        if(eval.front().second == "INT" && !is_float)
-            buff = stoi(eval.front().first);
-        else
-        {
-            buff = stof(eval.front().first);
-            is_float = true;
-        }
-        eval.pop();
-        while(!eval.empty())
-        {
-            operate(acc, buff, operation);
-            operation = eval.front().second;
-            eval.pop();
-            if(eval.front().second == "INT" && !is_float)
-                buff = stoi(eval.front().first);
-            else
-            {
-                buff = stof(eval.front().first);
-                is_float = true;
-            }
-            eval.pop();
-        }
-        operate(acc, buff, operation);
-        if(is_float)
-            cout<<acc<<endl;
-        else
-            cout<<int(acc)<<endl;
-
-    }
-};
 
 
 // int main()
