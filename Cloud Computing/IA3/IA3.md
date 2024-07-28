@@ -145,7 +145,7 @@ Google AppEngine (GAE) is a Platform as a Service (PaaS) offering that allows de
 
 Below is a simplified diagram illustrating the programming environment for Google AppEngine:
 
-![GAE Architecture](https://www.example.com/gae-architecture-diagram.png) 
+<img src = "Gappengine.png"> 
 
 (Note: The actual diagram is in the provided PDF file and cannot be displayed directly here, but the description of the components is based on the text from the document.)
 
@@ -169,7 +169,6 @@ Below is a simplified diagram illustrating the programming environment for Googl
 
 In summary, Google AppEngine offers a robust and comprehensive environment for developing and hosting scalable web applications, providing various tools and services to facilitate the entire application lifecycle from development to deployment.
 
-<img src = "Gappengine.png">
 
 # 6.Big-Table data model and system structure
 
@@ -213,3 +212,91 @@ This hierarchical structure ensures efficient data location and retrieval, minim
 
 BigTable's design allows it to handle large-scale data storage and retrieval efficiently. Its data model, system architecture, and hierarchical structure for data location provide a robust framework for managing vast amounts of data, supporting high read/write rates, and ensuring fault tolerance and scalability.
 
+# 8.Amazon Simple Storage Service (S3)
+
+### Amazon Simple Storage Service (S3)
+
+Amazon Simple Storage Service (S3) is a scalable, high-speed, web-based cloud storage service designed for online backup and archiving of data and applications on Amazon Web Services (AWS). It offers a simple web services interface that allows users to store and retrieve any amount of data from anywhere on the web at any time. S3 provides a highly durable storage infrastructure designed for mission-critical and primary data storage.
+
+#### Key Features of Amazon S3
+
+1. **Object Storage**: Amazon S3 stores data as objects within resources called "buckets". An object consists of a file and optionally any metadata that describes the file. Each object is identified by a unique, user-assigned key.
+
+2. **Scalability**: S3 is designed to scale out to support a virtually unlimited number of objects and requests. This means users can store as much data as they want and access it whenever needed.
+
+3. **Durability and Availability**: S3 is designed to provide 99.999999999% durability and 99.99% availability of objects over a given year. This is achieved through automatically storing data across multiple devices in multiple facilities and by performing regular, systematic data integrity checks.
+
+4. **Security**: Amazon S3 supports several security features for protecting data including access permissions, bucket policies, and encryption. Users can manage access permissions for their data using policies that define who can access specific buckets or objects.
+
+5. **Data Management Features**: S3 provides tools for lifecycle policies, which enable users to manage their objects so that they are stored cost-effectively throughout their lifecycle. This includes the ability to automatically transition objects to less expensive storage classes as they age.
+
+6. **Cost-Effective**: With S3, users only pay for the storage they actually use. There are no minimum fees, and users can scale up or down as their requirements change, ensuring they only pay for what they need.
+
+7. **Flexible Data Transfer**: Amazon S3 provides multiple methods for data transfer including internet transfer, AWS Direct Connect, and AWS Snowball for large data migrations.
+
+#### System Structure
+
+The system structure of Amazon S3 includes several components and features that ensure its scalability, durability, and availability. These components include:
+
+1. **Buckets and Objects**: The fundamental storage entity in S3 is an object, and objects are organized into buckets. Buckets serve as the top-level namespace for S3 data and help manage data storage and access control.
+
+2. **Data Storage**: Objects are stored across multiple devices and facilities, ensuring high availability and durability. S3’s architecture is designed to withstand concurrent device failures by redundantly storing data.
+
+3. **API Interface**: S3 provides REST (Representational State Transfer) and SOAP (Simple Object Access Protocol) interfaces for interacting with the service. The REST interface uses standard HTTP requests to perform operations on objects and buckets, while the SOAP interface allows for programmatic access.
+
+4. **Authentication and Access Control**: S3 integrates with AWS Identity and Access Management (IAM) to provide fine-grained control over who can access what data. Users can set policies at both the bucket and object level to control access.
+
+5. **Data Transfer and Integration**: S3 supports multiple data transfer methods and integrates seamlessly with other AWS services like Amazon EC2, AWS Lambda, and AWS Glacier, providing a comprehensive ecosystem for managing and processing data.
+
+#### Execution Environment
+
+The S3 execution environment is depicted in the structure where the user interacts with buckets and objects via the REST or SOAP interface. The fundamental components include:
+
+- **Buckets**: Containers for storing objects.
+- **Objects**: Individual files stored in S3, each with a unique key within its bucket.
+- **Keys**: Unique identifiers for objects within a bucket.
+- **Metadata**: Data about the data, stored along with the objects.
+
+These components together provide a robust, scalable, and highly available cloud storage service that can support a wide range of applications from backup and restore to big data analytics and content distribution.
+
+For a detailed overview, refer to the specific section on Amazon S3 in the provided textbook【26:0†source】.
+
+
+# 10.Aneka Application of Maya Rendering Case Study
+
+It appears there are no direct search results for "Aneka Application of Maya Rendering Case Study" in the textbook. However, I can provide a general overview based on the typical content of such case studies, focusing on Aneka and its application in rendering tasks like those performed in Maya.
+
+### Aneka Application for Maya Rendering: A Case Study
+
+#### Introduction
+Aneka is a middleware platform for developing and deploying applications on cloud computing infrastructures. It provides a runtime environment and a set of APIs that enable developers to harness the power of cloud computing for their applications, including those requiring intensive computation like 3D rendering.
+
+#### Overview of Maya Rendering
+Maya is a comprehensive 3D modeling and rendering software widely used in the animation, film, and video game industries. Rendering in Maya involves converting 3D models and scenes into 2D images, which is a computationally intensive process requiring significant processing power and time.
+
+#### The Case Study
+
+1. **Problem Statement**
+   - The primary challenge addressed in this case study is the need to reduce the time required for rendering high-quality images and animations in Maya. Traditional rendering methods on local machines are time-consuming and resource-intensive.
+
+2. **Aneka's Role**
+   - **Middleware Platform**: Aneka serves as the middleware platform that orchestrates the rendering tasks across a cloud infrastructure. It allows the distribution of rendering jobs across multiple computing nodes, significantly speeding up the process.
+   - **Scalability**: Aneka enables the scaling of computational resources up or down based on the workload, ensuring optimal use of resources and cost-effectiveness.
+
+3. **Implementation Steps**
+   - **Integration**: Maya's rendering engine is integrated with Aneka's APIs, allowing rendering jobs to be submitted to the Aneka platform.
+   - **Job Distribution**: Rendering tasks are divided into smaller sub-tasks (e.g., rendering individual frames or parts of a scene) and distributed across multiple nodes in the cloud.
+   - **Execution**: Aneka manages the execution of these tasks, monitors their progress, and handles any failures or retries as needed.
+   - **Aggregation**: Once the rendering tasks are completed, the results are collected and assembled into the final output.
+
+4. **Benefits**
+   - **Reduced Rendering Time**: By leveraging cloud resources, the rendering time for complex scenes and animations is significantly reduced.
+   - **Cost Efficiency**: Aneka's ability to dynamically allocate resources ensures that only the necessary computational power is used, optimizing costs.
+   - **Flexibility**: The integration with Aneka allows for easy scaling and adaptation to different project requirements, whether rendering a few frames or a full-length animated feature.
+
+5. **Results**
+   - The case study demonstrates a substantial improvement in rendering performance, with Aneka enabling quicker turnaround times for projects.
+   - Aneka's middleware capabilities facilitate efficient resource management and job scheduling, leading to better utilization of cloud resources.
+
+6. **Conclusion**
+   - The application of Aneka in Maya rendering showcases the potential of cloud computing to enhance the performance of computationally intensive tasks. The case study highlights the benefits of integrating middleware solutions like Aneka to achieve scalability, cost efficiency, and improved processing times in rendering applications.
