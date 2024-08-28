@@ -504,7 +504,7 @@ In a Variable Reluctance Stepper motor:
 ## 16. With a diagram explain two-pole dc motor with field coils
 
 <br><br>
-<img src = "2_pole_DC.png">
+<img src = "2_pole_DC .png">
 <br><br>
 
 A two-pole DC motor with field coils is a type of direct current motor that uses a pair of magnetic poles (north and south) created by electromagnets (field coils) to generate the magnetic field necessary for motor operation. Here’s a detailed explanation of its components and working principles:
